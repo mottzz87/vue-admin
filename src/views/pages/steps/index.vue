@@ -4,7 +4,7 @@
  * @LastEditTime: 2021-05-29 23:53:01
  * @LastEditors: Vane
  * @Description: 
- * @FilePath: \vue-next-admin\src\views\pages\steps\index.vue
+ * @FilePath: \vue-admin\src\views\pages\steps\index.vue
 -->
 <template>
 	<div class="steps-container">

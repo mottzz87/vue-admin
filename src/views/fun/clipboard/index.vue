@@ -1,3 +1,11 @@
+<!--
+ * @Author: Vane
+ * @Date: 2021-05-30 00:44:18
+ * @LastEditTime: 2021-05-30 01:37:25
+ * @LastEditors: Vane
+ * @Description: 
+ * @FilePath: \vue-admin\src\views\fun\clipboard\index.vue
+-->
 <template>
 	<div id="printRref">
 		<el-card shadow="hover" header="复制剪切演示">
@@ -9,7 +17,7 @@
 			></el-alert>
 			<el-input placeholder="请输入内容" v-model="copyVal">
 				<template #append>
-					<el-button @click="onCopyClick($event.target)" ref="copyBtnRef">复制链接</el-button>
+					<el-button @click="onCopyClick($event.target)" ref="copyBtnRef">复制</el-button>
 				</template>
 			</el-input>
 			<el-input placeholder="先点击上方 `复制链接` 按钮，然后 `Ctrl + V` 进行粘贴！ " v-model="shearVal" class="mt15"> </el-input>
@@ -28,7 +36,7 @@ export default {
 		const { t } = useI18n();
 		const copyBtnRef = ref();
 		const state = reactive({
-			copyVal: 'https://gitee.com/lyt-top/vue-next-admin',
+			copyVal: '这一个文本框',
 			shearVal: '',
 		});
 		// 复制链接点击

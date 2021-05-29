@@ -699,7 +699,7 @@ export const dynamicRoutes = [
 							isAffix: false,
 							isIframe: false,
 							auth: ['admin', 'test'],
-							icon: 'iconfont icon-bolangneng',
+							icon: 'iconfont ant-icon-thunderbolt-fill',
 						},
 					},
 					{
@@ -714,7 +714,7 @@ export const dynamicRoutes = [
 							isAffix: false,
 							isIframe: false,
 							auth: ['admin', 'test'],
-							icon: 'iconfont icon-shuxingtu',
+							icon: 'iconfont ant-icon-fork',
 						},
 					},
 				],

@@ -4,7 +4,7 @@
  * @LastEditTime: 2021-05-29 23:58:43
  * @LastEditors: Vane
  * @Description:
- * @FilePath: \vue-next-admin\src\api\menu\index.ts
+ * @FilePath: \vue-admin\src\api\menu\index.ts
  */
 import request from '@/utils/request.ts';
 

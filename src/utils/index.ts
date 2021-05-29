@@ -4,7 +4,7 @@
  * @Date         : 2021-04-29 13:22:12
  * @LastEditors: Vane
  * @LastEditTime: 2021-05-29 23:19:08
- * @FilePath: \vue-next-admin\src\utils\index.ts
+ * @FilePath: \vue-admin\src\utils\index.ts
  */
 
 // import { formatToDate, dateUtil } from './dateUtil';

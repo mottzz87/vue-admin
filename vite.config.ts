@@ -4,7 +4,7 @@
  * @LastEditTime: 2021-05-30 00:13:36
  * @LastEditors: Vane
  * @Description:
- * @FilePath: \vue-next-admin\vite.config.ts
+ * @FilePath: \vue-admin\vite.config.ts
  */
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';

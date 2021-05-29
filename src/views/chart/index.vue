@@ -256,7 +256,7 @@ export default {
 							},
 						},
 						data: [
-							{ name: 'vue-next-admin', value: 520 },
+							{ name: 'vue-admin', value: 520 },
 							{ name: 'lyt', value: 520 },
 							{ name: 'next-admin', value: 500 },
 							{ name: '更名', value: 420 },

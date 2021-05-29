@@ -49,7 +49,7 @@ export default {
 			];
 
 			const rawData = {
-				label: 'vue-next-admin',
+				label: 'vue-admin',
 				id: '0',
 				children: [
 					{

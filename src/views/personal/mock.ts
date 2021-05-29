@@ -4,7 +4,7 @@
  * @LastEditTime: 2021-05-30 00:00:41
  * @LastEditors: Vane
  * @Description:
- * @FilePath: \vue-next-admin\src\views\personal\mock.ts
+ * @FilePath: \vue-admin\src\views\personal\mock.ts
  */
 // 消息通知
 export const newsInfoList: Array<object> = [

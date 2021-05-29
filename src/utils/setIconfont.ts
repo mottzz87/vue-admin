@@ -1,14 +1,14 @@
 /*
  * @Author: Vane
  * @Date: 2021-05-29 22:21:36
- * @LastEditTime: 2021-05-29 23:22:52
+ * @LastEditTime: 2021-05-30 01:18:18
  * @LastEditors: Vane
  * @Description:
- * @FilePath: \vue-next-admin\src\utils\setIconfont.ts
+ * @FilePath: \vue-admin\src\utils\setIconfont.ts
  */
 // 字体图标 url
 const cssCdnUrlList: Array<string> = [
-	'//at.alicdn.com/t/font_2471493_g4n5cyqz50v.css',
+	'//at.alicdn.com/t/font_2471493_dw8kjy5wpk9.css',
 	'//cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
 ];
 // 第三方 js url

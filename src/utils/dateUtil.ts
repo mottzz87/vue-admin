@@ -3,8 +3,8 @@
  * @Desc         :
  * @Date         : 2021-05-10 21:49:09
  * @LastEditors: Vane
- * @LastEditTime: 2021-05-29 23:17:34
- * @FilePath: \vue-next-admin\src\utils\dateUtil.ts
+ * @LastEditTime: 2021-05-30 01:34:50
+ * @FilePath: \vue-admin\src\utils\dateUtil.ts
  */
 /**
  * Independent time operation tool to facilitate subsequent switch to dayjs

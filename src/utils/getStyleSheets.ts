@@ -1,10 +1,10 @@
 /*
  * @Author: Vane
  * @Date: 2021-05-29 22:21:36
- * @LastEditTime: 2021-05-29 23:24:28
+ * @LastEditTime: 2021-05-30 01:34:32
  * @LastEditors: Vane
  * @Description:
- * @FilePath: \vue-next-admin\src\utils\getStyleSheets.ts
+ * @FilePath: \vue-admin\src\utils\getStyleSheets.ts
  */
 import { nextTick } from 'vue';
 

@@ -68,7 +68,7 @@
 									<div class="home-dynamic-item-left-time2">{{ v.time2 }}</div>
 								</div>
 								<div class="home-dynamic-item-line">
-									<i class="iconfont icon-fangkuang"></i>
+									<i class="iconfont ant-icon-fangkuang"></i>
 								</div>
 								<div class="home-dynamic-item-right">
 									<div class="home-dynamic-item-right-title mb5">

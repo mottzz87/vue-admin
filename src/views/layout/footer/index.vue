@@ -1,7 +1,15 @@
+<!--
+ * @Author: Vane
+ * @Date: 2021-05-30 00:44:19
+ * @LastEditTime: 2021-05-30 01:36:13
+ * @LastEditors: Vane
+ * @Description: 
+ * @FilePath: \vue-admin\src\views\layout\footer\index.vue
+-->
 <template>
 	<div class="layout-footer mt15" v-show="isDelayFooter">
 		<div class="layout-footer-warp">
-			<div>vue-next-admin，Made by lyt with ❤️</div>
+			<div>vue-admin，Made by mottzz with ❤️</div>
 			<div class="mt5">{{ $t('message.copyright.one5') }}</div>
 		</div>
 	</div>
