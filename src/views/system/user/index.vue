@@ -1,114 +1,225 @@
+<!-- 
+ * Author       : Zhao Dongxu
+ * Desc         :  
+ * Date         : 2021-04-29 09:18:16
+ * @LastEditors: Vane
+ * @LastEditTime: 2021-05-31 04:30:18
+ * @FilePath: \vue-admin\src\views\system\user\index.vue
+ -->
 <template>
-	<div class="system-user-container">
-		<el-card shadow="hover">
-			<div class="system-user-search mb15">
-				<el-input size="small" placeholder="请输入用户名" prefix-icon="el-icon-search" style="max-width: 180px"></el-input>
-				<el-button size="small" type="primary" class="ml10">查询</el-button>
-			</div>
-			<el-table :data="tableData.data" stripe style="width: 100%">
-				<el-table-column prop="num" label="ID" show-overflow-tooltip></el-table-column>
-				<el-table-column prop="name" label="用户名" show-overflow-tooltip></el-table-column>
-				<el-table-column label="头像" show-overflow-tooltip>
-					<template #default="scope">
-						<el-image class="system-user-photo" :src="scope.row.photo" :preview-src-list="[scope.row.photo]"> </el-image>
-					</template>
-				</el-table-column>
-				<el-table-column prop="phone" label="手机" show-overflow-tooltip></el-table-column>
-				<el-table-column prop="email" label="邮箱" show-overflow-tooltip></el-table-column>
-				<el-table-column prop="sex" label="性别" show-overflow-tooltip></el-table-column>
-				<el-table-column prop="time" label="加入时间" show-overflow-tooltip></el-table-column>
-				<el-table-column prop="path" label="操作" width="90">
-					<template #default="scope">
-						<el-button size="mini" type="text">修改</el-button>
-						<el-button size="mini" type="text" @click="onRowDel(scope.row)">删除</el-button>
-					</template>
-				</el-table-column>
-			</el-table>
-			<el-pagination
-				@size-change="onHandleSizeChange"
-				@current-change="onHandleCurrentChange"
-				class="mt15"
-				:pager-count="5"
-				:page-sizes="[10, 20, 30]"
-				:current-page="tableData.param.pageNum"
-				background
-				:page-size="tableData.param.pageSize"
-				layout="total, sizes, prev, pager, next, jumper"
-				:total="tableData.total"
-			>
-			</el-pagination>
-		</el-card>
+	<div class="form-adapt-container">
+		<m-link :opts="[{ label: '编辑', href: '#/menu/menu1/menu11', click: (e) => toEdit(e) }, { label: '删除' }]" />
+		<form-table ref="form-table" :form-config="formConfig" :table-config="tableConfig" />
+		<!-- 编辑、新建 -->
+		<el-dialog
+			:title="editData ? '编辑' : '新增'"
+			:close-on-click-modal="false"
+			:destroy-on-close="true"
+			v-model="showEdit"
+		>
+			123
+		</el-dialog>
 	</div>
 </template>
-
 <script lang="ts">
-import { toRefs, reactive, onMounted } from 'vue';
+import { h, toRefs, reactive, getCurrentInstance } from 'vue';
+import Form from '@/components/Form/index.vue';
+import FormTable from '@/components/FormTable/index.vue';
+import Edit from './edit.vue';
+import components from '@/components/Form/base/index.vue';
+import { ElMessageBox, ElNotification, ElMessage } from 'element-plus';
 export default {
-	name: 'systemUser',
+	name: 'pagesFormAdapt',
+	components: {
+		FormTable,
+		...{ ...components.components },
+		// Edit
+	},
 	setup() {
-		const state: any = reactive({
-			tableData: {
-				data: [],
-				total: 0,
-				loading: false,
-				param: {
-					pageNum: 1,
-					pageSize: 10,
+		const { proxy } = getCurrentInstance() as any;
+		const opts = [
+			{ label: '篮球', value: '11' },
+			{ label: '乒乓球', value: '22' },
+			{ label: '橄榄球', value: '33' },
+			{ label: '网球', value: '44' },
+		];
+		const state = reactive({
+			showEdit: false,
+			editData: null,
+			loading: false,
+			formConfig: {
+				fields: [
+					{ prop: 'keyword', label: '关键字', type: 'textarea', rows: 1, maxlength: 100 },
+					{ prop: 'sort', label: '单个复选', is: 'Checkbox', desc: '全选' },
+					{ prop: 'channelId', label: '多选', span: 12, is: 'CheckboxGroup', hasCheckAll: true, opts },
+					{ prop: 'sort1', label: '下拉多选', is: 'Select', multiple: true, opts, clearable: false },
+					{ prop: 'sort2', label: '单选', is: 'RadioGroup', checkBtnType: 'btn', opts, span: 24 },
+					{ prop: 'sort3', label: '排序', is: 'InputNumber' },
+					{ prop: 'sort4', label: '日期', is: 'DatePicker', type: 'daterange', format: 'YYYY-MM-DD' },
+					{ prop: 'sort5', label: '评分', is: 'Rate' },
+					{
+						prop: 'sort6',
+						label: '切换',
+						is: 'Switch',
+					},
+					{ prop: 'sort7', label: '热搜词', is: 'Tag', opts },
+				],
+				formData: {
+					keyword: "['teset', 'safs']",
+					channelId: ['11'],
+					sort: '11',
+					sort1: ['11'],
+					sort2: '11',
+					sort3: 10,
+					gmtEnd: '2021-06-27',
+					gmtStart: '2021-05-28',
+					sort7: opts.map((v) => v.label),
+				},
+				attrs: {
+					span: 24,
+				},
+				actions: {
+					search: {
+						api: 'getDruglibList',
+						defaultParams: {},
+						extraParams: {},
+						// isResetNull: true,
+					},
 				},
 			},
+			tableConfig: {
+				// 构建列表表格
+				columns: Object.freeze([
+					{ label: 'ID', render: ({ row }) => row.num },
+					{ label: '用户名', prop: 'name' },
+					{ label: '头像', prop: 'zip' },
+					{ label: '手机号', prop: 'phone' },
+					{ label: '邮箱', prop: 'email' },
+					{ label: '性别', prop: 'sex' },
+					{ label: '加入时间', prop: 'time' },
+					{
+						label: '操作',
+						width: 200,
+						render: (h: any, row: any, val: any) => {
+							// return <m-link opts={[{ label: '编辑' }, { label: '删除' }]} />;
+							return 123;
+						},
+					},
+				]),
+				pagination: {},
+				// // 附加操作按钮
+				// tableHandle: [{
+				//   label: '下载模板',
+				//   action: 'download',
+				//   api: 'druglibDownload'
+				// }, {
+				//   label: '导入',
+				//   action: 'upload',
+				//   api: 'druglibImport',
+				//   confirmApi: 'druglibImportConfirm',
+				//   confirmProper: 'importList', // 导入确认接口字段定义（数据提交后端的列表键值对的key值）
+				//   confirmDefaultParams: {}, // 请求携带的参数
+				//   columns: [
+				//     { label: '编号', prop: 'code' },
+				//     { label: '药品名称', prop: 'name' },
+				//     { label: '药品规格', prop: 'specification' },
+				//     { label: '批号', prop: 'batchNumber' },
+				//     { label: '包装', prop: 'medicinePackage' },
+				//     { label: '单位', prop: 'arcUom' },
+				//     { label: '剂型', prop: 'dosageForm' },
+				//     { label: '药品种类', render: row => this.renderRowkey('druglib_index_typeOpts3', row.type) },
+				//     { label: '分类', render: row => this.renderRowkey('druglib_index_typeOpts2', row.medicineClass) },
+				//     { label: '抗生素类型', render: row => this.renderRowkey('druglib_index_typeOpts1', row.antibioticType) },
+				//     { label: '批准文号', prop: 'registerNumber' },
+				//     { label: '拼音编码', prop: 'pinyin' },
+				//     { label: '流转渠道', render: row => row.channelIdsStr ? row.channelIdsStr.split(',').filter(v => v).join('、') : '--' },
+				//     { label: '厂家', prop: 'manufacturer' }
+				//   ]
+				// }, {
+				//   type: 'success',
+				//   label: '新增',
+				//   icon: 'el-icon-edit',
+				//   handle: () => {
+				//     this.toEdit(null)
+				//   }
+				// }]
+			},
 		});
-		// 初始化表格数据
-		const initTableData = () => {
-			const data: Array<object> = [];
-			for (let i = 0; i < 20; i++) {
-				data.push({
-					num: `00${i + 1}`,
-					name: (Math.round(Math.random() * 20901) + 19968).toString(16),
-					photo: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1633081619,2004077072&fm=26&gp=0.jpg',
-					phone: Math.floor(Math.random() * 10000000000),
-					email: `${Math.floor(Math.random() * 1000)}@qq.com`,
-					sex: i % 2 === 0 ? '男' : '女',
-					time: new Date().toLocaleDateString(),
+		const getList = () => {
+			const { getList } = proxy.$refs['form-table'];
+			getList();
+		};
+
+		const toEdit = (row: any) => {
+			console.log(123123);
+
+			state.editData = row ? { ...row } : {};
+			state.showEdit = true;
+		};
+
+		const cancle = () => {
+			state.showEdit = false;
+		};
+
+		const handleDelete = (row: any) => {
+			const { beforeDelete } = proxy.$refs['form-table'];
+			ElMessageBox.confirm('确定要删除此药品吗？', '提示', {
+				confirmButtonText: '确定',
+				cancelButtonText: '取消',
+				type: 'warning',
+			}).then(() => {
+				//   Api.delDruglib({ medicineId: row.id }).then(res => {
+				ElNotification({
+					title: '成功',
+					message: '删除成功',
+					type: 'success',
+					duration: 2000,
 				});
-			}
-			state.tableData.data = data;
-			state.tableData.total = state.tableData.data.length;
+				beforeDelete();
+				//   }).catch((e) => {
+				//     console.log(e)
+				//   })
+			});
 		};
-		// 当前行删除
-		const onRowDel = (row: object) => {
-			console.log(row);
+
+		const save = (params: any) => {
+			console.log(params);
+			state.showEdit = false;
+			// const { validate, model } = proxy.$refs['index-edit-form'].$refs['edit-form'].$refs['form']
+			// validate(valid => {
+			// if (valid) {
+			// state.loading = true
+			// const data = {
+			//   ...model,
+			//   channelList: model.channelList
+			// }
+			// const updateApi = state.editData ? Api.updateDruglib : Api.addDruglib
+			// updateApi(model).then(res => {
+			//   this.loading = false
+			//   this.$notify({
+			//     title: '成功',
+			//     message: this.editData ? '保存成功' : '新建成功',
+			//     type: 'success',
+			//     duration: 2000
+			//   })
+			//   this.showEdit = false
+			//   this.getList()
+			// }).catch(error => {
+			//   console.log(error)
+			//   this.loading = false
+			// })
+			//   }
+			// })
 		};
-		// 分页改变
-		const onHandleSizeChange = (val: number) => {
-			state.tableData.param.pageSize = val;
-		};
-		// 分页改变
-		const onHandleCurrentChange = (val: number) => {
-			state.tableData.param.pageSize = val;
-		};
-		// 页面加载时
-		onMounted(() => {
-			initTableData();
-		});
+
 		return {
-			onRowDel,
-			onHandleSizeChange,
-			onHandleCurrentChange,
+			getList,
+			toEdit,
+			cancle,
+			handleDelete,
+			save,
 			...toRefs(state),
 		};
 	},
 };
 </script>
-
-<style scoped lang="scss">
-.system-user-container {
-	.system-user-search {
-		text-align: right;
-	}
-	.system-user-photo {
-		width: 40px;
-		height: 40px;
-		border-radius: 100%;
-	}
-}
-</style>

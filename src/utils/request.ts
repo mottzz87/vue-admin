@@ -1,3 +1,11 @@
+/*
+ * @Author: Vane
+ * @Date: 2021-05-30 00:44:17
+ * @LastEditTime: 2021-05-30 12:49:32
+ * @LastEditors: Vane
+ * @Description:
+ * @FilePath: \vue-admin\src\utils\request.ts
+ */
 import axios from 'axios';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import { clearSession, getSession } from '@/utils/storage.ts';
@@ -30,7 +38,7 @@ service.interceptors.response.use(
 	(response) => {
 		// 对响应数据做点什么
 		const res = response.data;
-		if (res.code && res.code !== 0) {
+		if (res?.code !== 0) {
 			// `token` 过期或者账号已在别处登录
 			if (res.code === 401 || res.code === 4001) {
 				clearSession(); // 清除浏览器全部临时缓存

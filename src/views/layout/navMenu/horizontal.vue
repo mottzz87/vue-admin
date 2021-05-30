@@ -1,9 +1,15 @@
 <template>
 	<div class="el-menu-horizontal-warp">
 		<el-scrollbar @wheel.native.prevent="onElMenuHorizontalScroll" ref="elMenuHorizontalScrollRef">
-			<el-menu router :default-active="defaultActive" background-color="transparent" mode="horizontal" @select="onHorizontalSelect">
+			<el-menu
+				router
+				:default-active="defaultActive"
+				background-color="transparent"
+				mode="horizontal"
+				@select="onHorizontalSelect"
+			>
 				<template v-for="val in menuLists">
-					<el-submenu :index="val.path" v-if="val.children && val.children.length > 0" :key="val.path">
+					<el-submenu :index="val.path" v-if="val.children?.length" :key="val.path">
 						<template #title>
 							<i :class="val.meta.icon ? val.meta.icon : ''"></i>
 							<span>{{ $t(val.meta.title) }}</span>
@@ -56,7 +62,8 @@ export default defineComponent({
 		// 设置横向滚动条可以鼠标滚轮滚动
 		const onElMenuHorizontalScroll = (e: any) => {
 			const eventDelta = e.wheelDelta || -e.deltaY * 40;
-			proxy.$refs.elMenuHorizontalScrollRef.$refs.wrap.scrollLeft = proxy.$refs.elMenuHorizontalScrollRef.$refs.wrap.scrollLeft + eventDelta / 4;
+			proxy.$refs.elMenuHorizontalScrollRef.$refs.wrap.scrollLeft =
+				proxy.$refs.elMenuHorizontalScrollRef.$refs.wrap.scrollLeft + eventDelta / 4;
 		};
 		// 初始化数据，页面刷新时，滚动条滚动到对应位置
 		const initElMenuOffsetLeft = () => {

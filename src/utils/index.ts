@@ -3,11 +3,11 @@
  * @Desc         :
  * @Date         : 2021-04-29 13:22:12
  * @LastEditors: Vane
- * @LastEditTime: 2021-05-29 23:19:08
+ * @LastEditTime: 2021-05-31 03:23:17
  * @FilePath: \vue-admin\src\utils\index.ts
  */
 
-// import { formatToDate, dateUtil } from './dateUtil';
+import { formatToDate } from './dateUtil.ts';
 /**
  * @description: 深拷贝
  * @param {*} obj 拷贝对象(object or array)
@@ -53,25 +53,26 @@ export const deepCopy = (obj: any, cache: any = []): any => {
  */
 export const beforeSubmit = (formData: any, fields: any) => {
 	let form = { ...formData };
-	// const pickerTypes = ['datepicker', 'timepicker']
-	// fields.length &&
-	// 	fields.forEach((v: any) => {
-	// 		// 调整类型为datepicker和timepicker的筛选数据 输出为两个字段的时间字符串
-	// 		if (v.is && pickerTypes.includes(v.is)) {
-	// 			// v.valueKey即为要输出的['gmtStart', 'gmtEnd']形式字符串数组
-	// 			if (form[v.prop] instanceof Array) {
-	// 				const [start, end] = v.valueKey || ['gmtStart', 'gmtEnd']
-	// 				const [startVal, endVal] = form[v.prop]
-	// 				form[start] = formatToDate(startVal)
-	// 				form[end] = formatToDate(endVal)
-	// 				delete form[v.prop]
-	// 			} else {
-	// 				form[v.prop] = formatToDate(form[v.prop])
-	// 				//单个日期或者多个日期初始值为空值时 删除属性
-	// 				if (!form[v.prop]) delete form[v.prop]
-	// 			}
-	// 		}
-	// 	})
+	const pickerTypes = ['datepicker', 'timepicker'];
+	const defaultFormat = 'YYYY-MM-DD';
+	fields.length &&
+		fields.forEach((v: any) => {
+			// 调整类型为datepicker和timepicker的筛选数据 输出为两个字段的时间字符串
+			if (v.is && pickerTypes.includes(v.is.toLocaleLowerCase())) {
+				// v.valueKey即为要输出的['gmtStart', 'gmtEnd']形式字符串数组
+				if (form[v.prop] instanceof Array) {
+					const [start, end] = v.valueKey || ['gmtStart', 'gmtEnd'];
+					const [startVal, endVal] = form[v.prop];
+					form[start] = formatToDate(startVal, v.format || defaultFormat);
+					form[end] = formatToDate(endVal, v.format || defaultFormat);
+					delete form[v.prop];
+				} else {
+					form[v.prop] = formatToDate(form[v.prop], v.format || defaultFormat);
+					//单个日期或者多个日期初始值为空值时 删除属性
+					if (!form[v.prop]) delete form[v.prop];
+				}
+			}
+		});
 	return form;
 };
 
@@ -88,12 +89,13 @@ export const beforeDetail = (formData: any, fields = []) => {
 	fields.length &&
 		fields.forEach((v: any) => {
 			// 调整类型为daterange和datetimerange的筛选数据 输出为两个字段的时间字符串
-			if (v.is && pickerTypes.includes(v.is)) {
+			if (v.is && pickerTypes.includes(v.is.toLocaleLowerCase())) {
 				// v.valueKey即为要输出的['gmtStart', 'gmtEnd']形式字符串数组
-				if (form[v.prop] instanceof Array) {
-					const [startVal, endVal] = form[v.prop] || [];
-					const value = startVal && endVal ? [startVal, endVal] : [];
-					form[v.prop] = value;
+				const [start, end] = v.valueKey || ['gmtStart', 'gmtEnd'];
+
+				//这里不同时存在 element会默认显示日期存在歧义
+				if (form[start] && form[end]) {
+					form[v.prop] = [form[start], form[end]];
 				}
 			}
 		});

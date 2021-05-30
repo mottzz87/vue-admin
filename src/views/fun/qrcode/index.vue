@@ -1,11 +1,3 @@
-<!--
- * @Author: Vane
- * @Date: 2021-05-30 00:44:18
- * @LastEditTime: 2021-05-30 01:35:50
- * @LastEditors: Vane
- * @Description: 
- * @FilePath: \vue-admin\src\views\fun\qrcode\index.vue
--->
 <template>
 	<div class="qrcode-container">
 		<el-card shadow="hover" header="qrcodejs2 二维码生成">
@@ -38,7 +30,7 @@ export default {
 		// 初始化生成二维码
 		const initQrcode = () => {
 			new QRCode(proxy.$refs.qrcodeRef, {
-				text: `baidu.com`,
+				text: `www.baidu.com${new Date().getTime()}`,
 				width: 125,
 				height: 125,
 				colorDark: '#000000',

@@ -1,7 +1,7 @@
 /*
  * @Author: Vane
  * @Date: 2021-05-29 22:21:36
- * @LastEditTime: 2021-05-30 00:13:36
+ * @LastEditTime: 2021-05-31 04:22:08
  * @LastEditors: Vane
  * @Description:
  * @FilePath: \vue-admin\vite.config.ts
@@ -9,6 +9,7 @@
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 import type { UserConfig } from 'vite';
+import vueJsx from '@vitejs/plugin-vue-jsx';
 import { loadEnv } from './src/utils/viteBuild.ts';
 
 const pathResolve = (dir: string): any => {
@@ -23,13 +24,35 @@ const alias: Record<string, string> = {
 };
 
 const viteConfig: UserConfig = {
-	plugins: [vue()],
+	plugins: [
+		vue({
+			// template: {
+			// 	compilerOptions: {
+			// 		isCustomElement: (tag) => {
+			// 			console.log(tag);
+			// 			return /^m-/.test(tag);
+			// 		},
+			// 	},
+			// },
+		}),
+		vueJsx({
+			// options are passed on to @vue/babel-plugin-jsx
+		}),
+	],
 	root: process.cwd(),
 	resolve: { alias },
 	base: process.env.NODE_ENV === 'production' ? VITE_PUBLIC_PATH : './',
 	optimizeDeps: {
-		include: ['element-plus/lib/locale/lang/zh-cn', 'element-plus/lib/locale/lang/en', 'element-plus/lib/locale/lang/zh-tw'],
+		include: [
+			'element-plus/lib/locale/lang/zh-cn',
+			'element-plus/lib/locale/lang/en',
+			'element-plus/lib/locale/lang/zh-tw',
+		],
 	},
+	// esbuild: {
+	// 	jsxFactory: 'h',
+	// 	jsxFragment: 'Fragment',
+	// },
 	server: {
 		host: '0.0.0.0',
 		port: VITE_PORT,

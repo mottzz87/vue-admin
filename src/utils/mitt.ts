@@ -1,3 +1,11 @@
+/*
+ * @Author: Vane
+ * @Date: 2021-05-29 23:02:30
+ * @LastEditTime: 2021-05-30 12:49:20
+ * @LastEditors: Vane
+ * @Description:
+ * @FilePath: \vue-admin\src\utils\mitt.ts
+ */
 /**
  * Mitt: Tiny functional event emitter / pubsub
  *
@@ -6,19 +14,19 @@
  * @returns {Function} The function's instance
  */
 export default class Mitt {
-	private cache: Map<string | Symbol, Array<(...data: any) => void>>
+	private cache: Map<string | Symbol, Array<(...data: any) => void>>;
 	constructor(all = []) {
 		// A Map of event names to registered handler functions.
-		this.cache = new Map(all)
+		this.cache = new Map(all);
 	}
 
 	once(type: string | Symbol, handler: Fn) {
 		const decor = (...args: any[]) => {
-			handler && handler.apply(this, args)
-			this.off(type, decor)
-		}
-		this.on(type, decor)
-		return this
+			handler?.apply(this, args);
+			this.off(type, decor);
+		};
+		this.on(type, decor);
+		return this;
 	}
 
 	/**
@@ -28,10 +36,10 @@ export default class Mitt {
 	 * @param {Function} handler Function to call in response to given event
 	 */
 	on(type: string | Symbol, handler: Fn) {
-		const handlers = this.cache?.get(type)
-		const added = handlers && handlers.push(handler)
+		const handlers = this.cache?.get(type);
+		const added = handlers?.push(handler);
 		if (!added) {
-			this.cache.set(type, [handler])
+			this.cache.set(type, [handler]);
 		}
 	}
 
@@ -42,9 +50,9 @@ export default class Mitt {
 	 * @param {Function} handler Handler function to remove
 	 */
 	off(type: string | Symbol, handler: Fn) {
-		const handlers = this.cache.get(type)
+		const handlers = this.cache.get(type);
 		if (handlers) {
-			handlers.splice(handlers.indexOf(handler) >>> 0, 1)
+			handlers.splice(handlers.indexOf(handler) >>> 0, 1);
 		}
 	}
 
@@ -58,8 +66,8 @@ export default class Mitt {
 	 * @param {*} [evt] Any value (object is recommended and powerful), passed to each handler
 	 */
 	emit(type: string | Symbol, evt?: any) {
-		for (const handler of (this.cache.get(type) || []).slice()) handler(evt)
-		for (const handler of (this.cache.get('*') || []).slice()) handler(type, evt)
+		for (const handler of (this.cache.get(type) || []).slice()) handler(evt);
+		for (const handler of (this.cache.get('*') || []).slice()) handler(type, evt);
 	}
 
 	/**
@@ -68,6 +76,6 @@ export default class Mitt {
 	 * Note: This will also remove event handlers passed via `mitt(all: EventHandlerMap)`.
 	 */
 	clear() {
-		this.cache.clear()
+		this.cache.clear();
 	}
 }

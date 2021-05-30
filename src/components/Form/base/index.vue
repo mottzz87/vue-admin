@@ -3,62 +3,53 @@
  * Desc         :  
  * Date         : 2021-05-27 17:35:01
  * @LastEditors: Vane
- * @LastEditTime: 2021-05-29 19:31:25
+ * @LastEditTime: 2021-05-31 04:13:59
  * @FilePath: \vue-admin\src\components\Form\base\index.vue
  -->
 <template>
-	<component :is="`m${item.is}`" :item="item" @callback="(e) => item.callback(e)"> </component>
+	<component :is="is()" :item="item" />
 </template>
 
 <script lang="ts">
-	import { defineComponent } from 'vue'
-	// import mButton from "./mButton.vue";
-	import mInput from './mInput.vue'
-	// import mRadio from "./mRadio.vue";
-	import mRadioGroup from './mRadioGroup.vue'
-	import mCheckbox from './mCheckbox.vue'
-	import mCheckboxGroup from './mCheckboxGroup.vue'
-	// import mCheckButton from "./mCheckButton.vue";
-	// import mDatePicker from "./mDatePicker.vue";
-	import mInputNumber from './mInputNumber.vue'
-	import mSelect from './mSelect.vue'
-	// import mSlider from "./mSlider.vue";
-	// import mSpan from "./mSpan.vue";
-	// import mIcon from "./mIcon.vue";
-	// import mColorPicker from "./mColorPicker.vue";
-	// import mRate from "./mRate.vue";
-	// import mTimePicker from "./mTimePicker.vue";
-	// import mTag from "./mTag.vue";
-	// import mSwitch from "./mSwitch.vue";
+import { defineComponent } from 'vue';
+import mInput from './mInput.vue';
+import mRadioGroup from './mRadioGroup.vue';
+import mCheckbox from './mCheckbox.vue';
+import mCheckboxGroup from './mCheckboxGroup.vue';
+import mDatePicker from './mDatePicker.vue';
+import mInputNumber from './mInputNumber.vue';
+import mSelect from './mSelect.vue';
+import mRate from './mRate.vue';
+import mTag from './mTag.vue';
+import mSwitch from './mSwitch.vue';
+import mLink from './mLink.vue';
 
-	export default defineComponent({
-		name: 'components',
-		components: {
-			// mButton,
-			mInput,
-			// mRadio,
-			mRadioGroup,
-			mCheckbox,
-			mCheckboxGroup,
-			// mCheckButton,
-			// mDatePicker,
-			mInputNumber,
-			mSelect,
-			// mSlider,
-			// mSpan,
-			// mIcon,
-			// mColorPicker,
-			// mRate,
-			// mTimePicker,
-			// mTag,
-			// mSwitch
-		},
-		props: {
-			item: {},
-			callback: Function,
-		},
-		setup() {
-			return {}
-		},
-	})
+export default defineComponent({
+	name: 'components',
+	components: {
+		mInput,
+		mRadioGroup,
+		mCheckbox,
+		mCheckboxGroup,
+		mDatePicker,
+		mInputNumber,
+		mSelect,
+		mRate,
+		mTag,
+		mSwitch,
+		mLink,
+	},
+	props: {
+		item: Object,
+	},
+	setup(props) {
+		const is = () => (props.item?.is.includes('el-') ? `${props.item.is}` : `m${props.item?.is}`);
+		if (props.item?.is.includes('el-')) {
+			console.log(props.item.is);
+		}
+		return {
+			is,
+		};
+	},
+});
 </script>

@@ -320,6 +320,15 @@
 	color: set-color(primary);
 }
 
+/* Rate 评分
+------------------------------- */
+// Form表单下评分样式优化
+.el-form-item__content {
+	.el-rate {
+		line-height: 2.1;
+	}
+}
+
 /* Slider 滑块
 ------------------------------- */
 .el-slider__bar {

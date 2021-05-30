@@ -1,3 +1,11 @@
+<!--
+ * @Author: Vane
+ * @Date: 2021-05-30 00:44:19
+ * @LastEditTime: 2021-05-30 12:53:49
+ * @LastEditors: Vane
+ * @Description: 
+ * @FilePath: \vue-admin\src\views\layout\navMenu\vertical.vue
+-->
 <template>
 	<el-menu
 		router
@@ -8,7 +16,7 @@
 		:collapse-transition="false"
 	>
 		<template v-for="val in menuLists">
-			<el-submenu :index="val.path" v-if="val.children && val.children.length > 0" :key="val.path">
+			<el-submenu :index="val.path" v-if="val.children?.length" :key="val.path">
 				<template #title>
 					<i :class="val.meta.icon ? val.meta.icon : ''"></i>
 					<span>{{ $t(val.meta.title) }}</span>

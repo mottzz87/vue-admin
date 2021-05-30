@@ -1,7 +1,7 @@
 /*
  * @Author: Vane
  * @Date: 2021-05-29 22:21:36
- * @LastEditTime: 2021-05-30 01:34:32
+ * @LastEditTime: 2021-05-30 12:48:18
  * @LastEditors: Vane
  * @Description:
  * @FilePath: \vue-admin\src\utils\getStyleSheets.ts
@@ -15,16 +15,18 @@ const getAlicdnIconfont = () => {
 			const styles: any = document.styleSheets;
 			let sheetsList = [];
 			let sheetsIconList = [];
-			for (let i = 0; i < styles.length; i++) {
-				if (styles[i].href && styles[i].href.indexOf('at.alicdn.com') > -1) {
+			for (let i = 0, len = styles.length; i < len; i++) {
+				if (styles[i].href?.indexOf('at.alicdn.com') > -1) {
 					sheetsList.push(styles[i]);
 				}
 			}
-			for (let i = 0; i < sheetsList.length; i++) {
-				for (let j = 0; j < sheetsList[i].cssRules.length; j++) {
-					if (sheetsList[i].cssRules[j].selectorText && sheetsList[i].cssRules[j].selectorText.indexOf('ant-icon') > -1) {
+			for (let i = 0, len = sheetsList.length; i < len; i++) {
+				for (let j = 0, _len = sheetsList[i].cssRules.length; j < _len; j++) {
+					if (sheetsList[i].cssRules[j].selectorText?.indexOf('ant-icon') > -1) {
 						sheetsIconList.push(
-							`${sheetsList[i].cssRules[j].selectorText.substring(1, sheetsList[i].cssRules[j].selectorText.length).replace(/\:\:before/gi, '')}`
+							`${sheetsList[i].cssRules[j].selectorText
+								.substring(1, sheetsList[i].cssRules[j].selectorText.length)
+								.replace(/\:\:before/gi, '')}`
 						);
 					}
 				}
@@ -41,11 +43,13 @@ const getElementPlusIconfont = () => {
 		nextTick(() => {
 			const styles: any = document.styleSheets;
 			let sheetsIconList = [];
-			for (let i = 0; i < styles.length; i++) {
-				for (let j = 0; j < styles[i].cssRules.length; j++) {
-					if (styles[i].cssRules[j].selectorText && styles[i].cssRules[j].selectorText.indexOf('.el-icon-') === 0) {
+			for (let i = 0, len = styles.length; i < len; i++) {
+				for (let j = 0, _len = styles[i].cssRules.length; j < _len; j++) {
+					if (styles[i].cssRules[j].selectorText?.indexOf('.el-icon-') === 0) {
 						sheetsIconList.push(
-							`${styles[i].cssRules[j].selectorText.substring(1, styles[i].cssRules[j].selectorText.length).replace(/\:\:before/gi, '')}`
+							`${styles[i].cssRules[j].selectorText
+								.substring(1, styles[i].cssRules[j].selectorText.length)
+								.replace(/\:\:before/gi, '')}`
 						);
 					}
 				}
@@ -63,20 +67,21 @@ const getAwesomeIconfont = () => {
 			const styles: any = document.styleSheets;
 			let sheetsList = [];
 			let sheetsIconList = [];
-			for (let i = 0; i < styles.length; i++) {
-				if (styles[i].href && styles[i].href.indexOf('bootcdn') > -1) {
+			for (let i = 0, len = styles.length; i < len; i++) {
+				if (styles[i].href?.indexOf('bootcdn') > -1) {
 					sheetsList.push(styles[i]);
 				}
 			}
-			for (let i = 0; i < sheetsList.length; i++) {
-				for (let j = 0; j < sheetsList[i].cssRules.length; j++) {
+			for (let i = 0, len = sheetsList.length; i < len; i++) {
+				for (let j = 0, _len = sheetsList[i].cssRules.length; j < _len; j++) {
 					if (
-						sheetsList[i].cssRules[j].selectorText &&
-						sheetsList[i].cssRules[j].selectorText.indexOf('.fa-') === 0 &&
-						sheetsList[i].cssRules[j].selectorText.indexOf(',') === -1
+						sheetsList[i].cssRules[j].selectorText?.indexOf('.fa-') === 0 &&
+						sheetsList[i].cssRules[j].selectorText?.indexOf(',') === -1
 					) {
 						sheetsIconList.push(
-							`${sheetsList[i].cssRules[j].selectorText.substring(1, sheetsList[i].cssRules[j].selectorText.length).replace(/\:\:before/gi, '')}`
+							`${sheetsList[i].cssRules[j].selectorText
+								.substring(1, sheetsList[i].cssRules[j].selectorText.length)
+								.replace(/\:\:before/gi, '')}`
 						);
 					}
 				}

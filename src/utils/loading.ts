@@ -1,3 +1,11 @@
+/*
+ * @Author: Vane
+ * @Date: 2021-05-30 00:44:17
+ * @LastEditTime: 2021-05-30 12:49:01
+ * @LastEditors: Vane
+ * @Description:
+ * @FilePath: \vue-admin\src\utils\loading.ts
+ */
 import { nextTick } from 'vue';
 import loadingCss from '@/theme/loading.scss';
 
@@ -39,7 +47,7 @@ export const NextLoading = {
 		nextTick(() => {
 			setTimeout(() => {
 				const el = document.querySelector('.loading-next');
-				el && el.parentNode?.removeChild(el);
+				el?.parentNode?.removeChild(el);
 			}, 1000);
 		});
 	},

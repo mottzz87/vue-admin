@@ -1,6 +1,14 @@
+/*
+ * @Author: Vane
+ * @Date: 2021-05-30 00:44:16
+ * @LastEditTime: 2021-05-30 02:23:31
+ * @LastEditors: Vane
+ * @Description:
+ * @FilePath: \vue-admin\.prettierrc.js
+ */
 module.exports = {
 	// 一行最多多少个字符
-	printWidth: 150,
+	printWidth: 120,
 	// 指定每个缩进级别的空格数
 	tabWidth: 2,
 	// 使用制表符而不是空格缩进行

@@ -18,7 +18,7 @@
 						<i :class="v.meta.icon"></i>
 						<div class="columns-vertical-title font12">
 							{{
-								$t(v.meta.title) && $t(v.meta.title).length >= 4
+								$t(v.meta.title)?.length >= 4
 									? $t(v.meta.title).substr(0, setColumnsAsidelayout === 'columns-vertical' ? 4 : 3)
 									: $t(v.meta.title)
 							}}
@@ -29,7 +29,7 @@
 							<i :class="v.meta.icon"></i>
 							<div class="columns-vertical-title font12">
 								{{
-									$t(v.meta.title) && $t(v.meta.title).length >= 4
+									$t(v.meta.title)?.length >= 4
 										? $t(v.meta.title).substr(0, setColumnsAsidelayout === 'columns-vertical' ? 4 : 3)
 										: $t(v.meta.title)
 								}}
@@ -132,7 +132,9 @@ export default {
 		};
 		// 监听路由的变化，动态赋值给菜单中
 		watch(store.state, (val) => {
-			val.themeConfig.themeConfig.columnsAsideStyle === 'columnsRound' ? (state.difference = 3) : (state.difference = 0);
+			val.themeConfig.themeConfig.columnsAsideStyle === 'columnsRound'
+				? (state.difference = 3)
+				: (state.difference = 0);
 			if (val.routesList.routesList.length === state.columnsAsideList.length) return false;
 			setFilterRoutes();
 		});

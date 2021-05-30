@@ -901,7 +901,10 @@ export function backEndRouter(routes: any) {
 }
 
 // 后端控制路由，后端路由 component 转换函数
-export function dynamicImport(dynamicViewsModules: Record<string, () => Promise<{ [key: string]: any }>>, component: string) {
+export function dynamicImport(
+	dynamicViewsModules: Record<string, () => Promise<{ [key: string]: any }>>,
+	component: string
+) {
 	const keys = Object.keys(dynamicViewsModules);
 	const matchKeys = keys.filter((key) => {
 		const k = key.replace('../views', '');
@@ -937,7 +940,14 @@ export function formatTwoStageRoutes(arr: any) {
 	const cacheList: Array<string> = [];
 	arr.forEach((v: any) => {
 		if (v.path === '/') {
-			newArr.push({ component: v.component, name: v.name, path: v.path, redirect: v.redirect, meta: v.meta, children: [] });
+			newArr.push({
+				component: v.component,
+				name: v.name,
+				path: v.path,
+				redirect: v.redirect,
+				meta: v.meta,
+				children: [],
+			});
 		} else {
 			newArr[0].children.push({ ...v });
 			if (newArr[0].meta.isKeepAlive && v.meta.isKeepAlive) {
@@ -954,17 +964,23 @@ export function setCacheTagsViewRoutes() {
 	// 先处理有权限的路由，否则 tagsView、菜单搜索中无权限的路由也将显示
 	let authsRoutes = setFilterMenuFun(dynamicRoutes, store.state.userInfos.userInfos.authPageList);
 	// 添加到 vuex setTagsViewRoutes 中
-	store.dispatch('tagsViewRoutes/setTagsViewRoutes', formatTwoStageRoutes(formatFlatteningRoutes(authsRoutes))[0].children);
+	store.dispatch(
+		'tagsViewRoutes/setTagsViewRoutes',
+		formatTwoStageRoutes(formatFlatteningRoutes(authsRoutes))[0].children
+	);
 }
 
 // 获取当前用户的权限去比对路由表，用于左侧菜单/横向菜单的显示
 export function setFilterMenu() {
-	store.dispatch('routesList/setRoutesList', setFilterMenuFun(dynamicRoutes[0].children, store.state.userInfos.userInfos.authPageList));
+	store.dispatch(
+		'routesList/setRoutesList',
+		setFilterMenuFun(dynamicRoutes[0].children, store.state.userInfos.userInfos.authPageList)
+	);
 }
 
 // 判断路由 auth 中是否包含当前登录用户权限字段
 export function hasAuth(auths: any, route: any) {
-	if (route.meta && route.meta.auth) return auths.some((auth: any) => route.meta.auth.includes(auth));
+	if (route.meta?.auth) return auths.some((auth: any) => route.meta.auth.includes(auth));
 	else return true;
 }
 

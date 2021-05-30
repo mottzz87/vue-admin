@@ -1,5 +1,8 @@
 <template>
-	<div class="layout-navbars-tagsview" :class="{ 'layout-navbars-tagsview-shadow': getThemeConfig.layout === 'classic' }">
+	<div
+		class="layout-navbars-tagsview"
+		:class="{ 'layout-navbars-tagsview-shadow': getThemeConfig.layout === 'classic' }"
+	>
 		<el-scrollbar ref="scrollbarRef" @wheel.native.prevent="onHandleScroll">
 			<ul class="layout-navbars-tagsview-ul" :class="setTagsStyle" ref="tagsUlRef">
 				<li
@@ -16,8 +19,15 @@
 						}
 					"
 				>
-					<i class="iconfont ant-icon-webicon layout-navbars-tagsview-ul-li-iconfont font14" v-if="isActive(v.path)"></i>
-					<i class="layout-navbars-tagsview-ul-li-iconfont" :class="v.meta.icon" v-if="!isActive(v.path) && getThemeConfig.isTagsviewIcon"></i>
+					<i
+						class="iconfont ant-icon-webicon layout-navbars-tagsview-ul-li-iconfont font14"
+						v-if="isActive(v.path)"
+					></i>
+					<i
+						class="layout-navbars-tagsview-ul-li-iconfont"
+						:class="v.meta.icon"
+						v-if="!isActive(v.path) && getThemeConfig.isTagsviewIcon"
+					></i>
 					<span>{{ $t(v.meta.title) }}</span>
 					<template v-if="isActive(v.path)">
 						<i class="el-icon-refresh-right ml5" @click.stop="refreshCurrentTagsView(v.path)"></i>
@@ -40,7 +50,19 @@
 </template>
 
 <script lang="ts">
-import { toRefs, reactive, onMounted, computed, ref, nextTick, onBeforeUpdate, onBeforeMount, onUnmounted, getCurrentInstance, watch } from 'vue';
+import {
+	toRefs,
+	reactive,
+	onMounted,
+	computed,
+	ref,
+	nextTick,
+	onBeforeUpdate,
+	onBeforeMount,
+	onUnmounted,
+	getCurrentInstance,
+	watch,
+} from 'vue';
 import { useRoute, useRouter, onBeforeRouteUpdate } from 'vue-router';
 import screenfull from 'screenfull';
 import { useStore } from '@/store/index.ts';
@@ -123,7 +145,8 @@ export default {
 						state.tagsViewList.splice(k, 1);
 						setTimeout(() => {
 							// 最后一个
-							if (state.tagsViewList.length === k) router.push({ path: arr[arr.length - 1].path, query: arr[arr.length - 1].query });
+							if (state.tagsViewList.length === k)
+								router.push({ path: arr[arr.length - 1].path, query: arr[arr.length - 1].query });
 							// 否则，跳转到下一个
 							else router.push({ path: arr[k].path, query: arr[k].query });
 						}, 0);
@@ -273,7 +296,7 @@ export default {
 		const initSortable = () => {
 			const el: any = document.querySelector('.layout-navbars-tagsview-ul');
 			if (!el) return false;
-			if (!getThemeConfig.value.isSortableTagsView) state.sortable && state.sortable.destroy();
+			if (!getThemeConfig.value.isSortableTagsView) state.sortable?.destroy();
 			if (getThemeConfig.value.isSortableTagsView) {
 				state.sortable = Sortable.create(el, {
 					animation: 300,

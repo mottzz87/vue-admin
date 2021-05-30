@@ -2,9 +2,9 @@
  * Author       : Zhao Dongxu
  * Desc         :  
  * Date         : 2021-05-17 16:48:46
- * LastEditors  : Vane
- * LastEditTime : 2021-05-27 17:31:58
- * FilePath     : \src\components\Table\index.vue
+ * @LastEditors: Vane
+ * @LastEditTime: 2021-05-31 03:35:49
+ * @FilePath: \vue-admin\src\components\Table\index.vue
  -->
 
 <template>
@@ -42,96 +42,96 @@
 </template>
 
 <script lang="ts">
-	import Pagination from '@/components/Pagination/index.vue'
-	import { h, toRefs, reactive, computed, getCurrentInstance, onMounted } from 'vue'
+import Pagination from '@/components/Pagination/index.vue';
+import { h, toRefs, reactive, computed, getCurrentInstance, onMounted } from 'vue';
 
-	export default {
-		name: 'Table',
-		components: {
-			Pagination,
+export default {
+	name: 'Table',
+	components: {
+		Pagination,
+	},
+	emits: ['handle-selection-change', 'paginationChange'],
+	props: {
+		loading: {
+			type: Boolean,
+			default: false,
 		},
-		emits: ['handle-selection-change', 'paginationChange'],
-		props: {
-			loading: {
-				type: Boolean,
-				default: false,
-			},
-			data: {
-				type: Array,
-				default: null,
-			},
-			columns: {
-				type: Array,
-				default: null,
-			},
-			headerCellStyle: {
-				type: Object,
-				default: () => ({ background: '#F5F7FA', color: '#888' }),
-			},
-			maxHeight: {
-				type: Number || String,
-				default: null,
-			},
-			pagination: {
-				type: Object,
-				default: null,
-			},
-			// 有多选配置就代表存在多选项
-			manipulate: {
-				type: Object,
-				default: null,
-			},
-			// 绑定key
-			rowKey: {
-				type: String,
-				default: 'id',
-			},
-			// 是否可选
-			allowSelect: {
-				type: Boolean,
-				default: true,
-			},
-			// 拖拽事件
-			rowMoveFn: {
-				type: Function,
-				default: null,
-			},
+		data: {
+			type: Array,
+			default: null,
 		},
-
-		setup(props, { emit }) {
-			const state = reactive({
-				selected: [],
-				rowStyle: {},
-			})
-
-			// 页面加载时
-			onMounted(() => {
-				// console.log(1111);
-			})
-
-			// //header多行显示 用,分割
-			// const renderHeader = (e:any) => {
-			//   const { label }  = e.column
-			//   const arr = label.split(',')
-			//   return label ? label.split(',').map((v: any) => <span>{v}<br/></span>) : null
-			// }
-
-			//格式化 支持render
-			const formatter = (row, column, cellValue, i, col) => {
-				const val = typeof cellValue === 'object' ? JSON.stringify(cellValue) : cellValue
-				return col.render ? col.render({ h, row, val, i }) : cellValue
-			}
-
-			const handleSelectionChange = (val: never[]) => {
-				state.selected = val
-				emit('handle-selection-change', val)
-			}
-			return {
-				handleSelectionChange,
-				// rowMove,
-				formatter,
-				...toRefs(state),
-			}
+		columns: {
+			type: Array,
+			default: null,
 		},
-	}
+		headerCellStyle: {
+			type: Object,
+			default: () => ({ background: '#F5F7FA', color: '#888' }),
+		},
+		maxHeight: {
+			type: Number || String,
+			default: null,
+		},
+		pagination: {
+			type: Object,
+			default: null,
+		},
+		// 有多选配置就代表存在多选项
+		manipulate: {
+			type: Object,
+			default: null,
+		},
+		// 绑定key
+		rowKey: {
+			type: String,
+			default: 'id',
+		},
+		// 是否可选
+		allowSelect: {
+			type: Boolean,
+			default: true,
+		},
+		// 拖拽事件
+		rowMoveFn: {
+			type: Function,
+			default: null,
+		},
+	},
+
+	setup(props, { emit }) {
+		const state = reactive({
+			selected: [],
+			rowStyle: {},
+		});
+
+		// 页面加载时
+		onMounted(() => {
+			// console.log(1111);
+		});
+
+		// //header多行显示 用,分割
+		// const renderHeader = (e:any) => {
+		//   const { label }  = e.column
+		//   const arr = label.split(',')
+		//   return label ? label.split(',').map((v: any) => <span>{v}<br/></span>) : null
+		// }
+
+		//格式化 支持render
+		const formatter = (row, column, cellValue, i, col) => {
+			const val = typeof cellValue === 'object' ? JSON.stringify(cellValue) : cellValue;
+			return col.render ? col.render({ h, row, val, i }) : cellValue;
+		};
+
+		const handleSelectionChange = (val: never[]) => {
+			state.selected = val;
+			emit('handle-selection-change', val);
+		};
+		return {
+			handleSelectionChange,
+			// rowMove,
+			formatter,
+			...toRefs(state),
+		};
+	},
+};
 </script>
