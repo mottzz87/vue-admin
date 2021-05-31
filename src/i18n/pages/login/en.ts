@@ -1,3 +1,11 @@
+/*
+ * @Author: Vane
+ * @Date: 2021-05-31 09:41:45
+ * @LastEditTime: 2021-05-31 16:53:08
+ * @LastEditors: Vane
+ * @Description:
+ * @FilePath: \vue-admin\src\i18n\pages\login\en.ts
+ */
 // 定义内容
 export default {
 	label: {
@@ -9,8 +17,8 @@ export default {
 		two4: 'Links',
 	},
 	copyright: {
-		one5: 'Copyright: Shenzhen XXX Software Technology Co., Ltd',
-		two6: 'Copyright: Shenzhen XXX software technology Guangdong ICP preparation no.05010000',
+		one5: 'Copyright: XXX Technology Co., Ltd',
+		two6: 'Copyright:  XXX  technology  ICP preparation no.05010000',
 	},
 	account: {
 		accountPlaceholder1: 'The user name admin or not is test',

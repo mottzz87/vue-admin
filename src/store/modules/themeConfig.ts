@@ -100,7 +100,7 @@ const themeConfigModule: Module<ThemeConfigState, RootStateTypes> = {
 			// 是否开启水印
 			isWartermark: false,
 			// 水印文案
-			wartermarkText: 'small@小柒',
+			wartermarkText: 'vue-admin',
 
 			/**
 			 * 其它设置
@@ -134,7 +134,7 @@ const themeConfigModule: Module<ThemeConfigState, RootStateTypes> = {
 			// 网站主标题（菜单导航、浏览器当前网页标题）
 			globalTitle: 'vue-admin',
 			// 网站副标题（登录页顶部文字）
-			globalViceTitle: 'SMALL@小柒',
+			globalViceTitle: 'XXX科技有限公司',
 			// 默认初始语言，可选值"<zh-cn|en|zh-tw>"，默认 zh-cn
 			globalI18n: 'zh-cn',
 			// 默认全局组件大小，可选值"<|medium|small|mini>"，默认 ''

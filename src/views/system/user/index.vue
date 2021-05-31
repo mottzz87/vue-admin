@@ -3,12 +3,11 @@
  * Desc         :  
  * Date         : 2021-04-29 09:18:16
  * @LastEditors: Vane
- * @LastEditTime: 2021-05-31 04:30:18
+ * @LastEditTime: 2021-05-31 17:21:32
  * @FilePath: \vue-admin\src\views\system\user\index.vue
  -->
 <template>
 	<div class="form-adapt-container">
-		<m-link :opts="[{ label: '编辑', href: '#/menu/menu1/menu11', click: (e) => toEdit(e) }, { label: '删除' }]" />
 		<form-table ref="form-table" :form-config="formConfig" :table-config="tableConfig" />
 		<!-- 编辑、新建 -->
 		<el-dialog
@@ -27,7 +26,7 @@ import Form from '@/components/Form/index.vue';
 import FormTable from '@/components/FormTable/index.vue';
 import Edit from './edit.vue';
 import components from '@/components/Form/base/index.vue';
-import { ElMessageBox, ElNotification, ElMessage } from 'element-plus';
+import { ElMessageBox, ElNotification } from 'element-plus';
 export default {
 	name: 'pagesFormAdapt',
 	components: {

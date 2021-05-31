@@ -1,10 +1,18 @@
+/*
+ * @Author: Vane
+ * @Date: 2021-05-31 09:41:45
+ * @LastEditTime: 2021-05-31 15:39:59
+ * @LastEditors: Vane
+ * @Description:
+ * @FilePath: \vue-admin\src\main.ts
+ */
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import { store, key } from './store';
-import { directive } from '@/utils/directive.ts';
-import { i18n } from '@/i18n/index.ts';
-import { globalComponentSize } from '@/utils/componentSize.ts';
+import { directive } from '@/utils/directive';
+import { i18n } from '@/i18n/index';
+import { globalComponentSize } from '@/utils/componentSize';
 
 import ElementPlus from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';

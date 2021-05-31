@@ -1,3 +1,11 @@
+/*
+ * @Author: Vane
+ * @Date: 2021-05-31 09:41:45
+ * @LastEditTime: 2021-05-31 16:39:17
+ * @LastEditors: Vane
+ * @Description:
+ * @FilePath: \vue-admin\.eslintrc.js
+ */
 module.exports = {
 	root: true,
 	env: {
@@ -56,5 +64,6 @@ module.exports = {
 		'no-multiple-template-root': 'off',
 		'no-unused-vars': 'error',
 		'no-v-model-argument': 'off',
+		'no-case-declarations': 'off',
 	},
 };

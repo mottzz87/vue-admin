@@ -3,7 +3,7 @@
  * Desc         :  
  * Date         : 2021-04-27 14:18:06
  * @LastEditors: Vane
- * @LastEditTime: 2021-05-31 01:23:45
+ * @LastEditTime: 2021-05-31 17:30:16
  * @FilePath: \vue-admin\src\components\Form\index.vue
  -->
 
@@ -20,7 +20,8 @@
 					class="col mb20"
 				>
 					<el-form-item v-bind="x" class="width-full">
-						<m-element :item="x" v-model="form[x.prop]" v-bind="getComsAttrs(x)"></m-element>
+						<slot v-if="x?.is === 'slot'" :name="x.slotName" :data="{ ...x, ...form }"></slot>
+						<m-element v-else :item="x" v-model="form[x.prop]" v-bind="getComsAttrs(x)"></m-element>
 						<!-- cusComponent自定义组件 通过render函数渲染 -->
 						<!-- <div v-else-if="x.render" v-html="renderCusComponent(x, form, form[x.prop])"></div> -->
 					</el-form-item>

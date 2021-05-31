@@ -6,13 +6,20 @@
 				<el-card shadow="hover" header="个人信息">
 					<div class="personal-user">
 						<div class="personal-user-left">
-							<el-upload class="h100 personal-user-left-upload" action="https://jsonplaceholder.typicode.com/posts/" multiple :limit="1">
+							<el-upload
+								class="h100 personal-user-left-upload"
+								action="https://jsonplaceholder.typicode.com/posts/"
+								multiple
+								:limit="1"
+							>
 								<img src="https://gitee.com/vaned/admin-cdn/raw/master/v3/user/photo.jpg" />
 							</el-upload>
 						</div>
 						<div class="personal-user-right">
 							<el-row>
-								<el-col :span="24" class="personal-title mb18">{{ currentTime }}，admin，生活变的再糟糕，也不妨碍我变得更好！ </el-col>
+								<el-col :span="24" class="personal-title mb18"
+									>{{ currentTime }}，admin，生活变的再糟糕，也不妨碍我变得更好！
+								</el-col>
 								<el-col :span="24">
 									<el-row>
 										<el-col :xs="24" :sm="8" class="personal-item mb6">

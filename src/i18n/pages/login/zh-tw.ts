@@ -1,3 +1,11 @@
+/*
+ * @Author: Vane
+ * @Date: 2021-05-31 09:41:45
+ * @LastEditTime: 2021-05-31 16:50:53
+ * @LastEditors: Vane
+ * @Description:
+ * @FilePath: \vue-admin\src\i18n\pages\login\zh-tw.ts
+ */
 // 定义内容
 export default {
 	label: {
@@ -9,8 +17,8 @@ export default {
 		two4: '友情連結',
 	},
 	copyright: {
-		one5: '版權所有：深圳市xxx軟件科技有限公司',
-		two6: 'Copyright: Shenzhen XXX Software Technology 粵ICP備05010000號',
+		one5: '版權所有：xxx科技有限公司',
+		two6: 'Copyright: XXX Technology 粵ICP備05010000號',
 	},
 	account: {
 		accountPlaceholder1: '用戶名admin或不輸均為test',

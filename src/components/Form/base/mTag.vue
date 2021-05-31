@@ -1,7 +1,7 @@
 <!--
  * @Author: Vane
  * @Date: 2021-05-31 01:47:47
- * @LastEditTime: 2021-05-31 03:22:39
+ * @LastEditTime: 2021-05-31 15:50:45
  * @LastEditors: Vane
  * @Description: 
  * @FilePath: \vue-admin\src\components\Form\base\mTag.vue
@@ -75,7 +75,10 @@ export default {
 			const { inputValue } = state;
 
 			const arr = props.modelValue || [];
-			if (!inputValue) return ElMessage.warning('请输入内容');
+			if (!inputValue) {
+				state.inputVisible = false;
+				return;
+			}
 			if (props.modelValue?.includes(inputValue)) return ElMessage.warning(props.item?.warnMsg || '请勿重复添加');
 
 			arr.push(inputValue);
