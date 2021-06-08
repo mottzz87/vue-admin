@@ -1,61 +1,61 @@
-name: Publish And Deploy Demo # è‡ªåŠ¨éƒ¨ç½²çš„åç§°
+name: Publish And Deploy Demo # ×Ô¶¯²¿ÊğµÄÃû³Æ
 on:
   push:
-    # tags: # å½“æˆ‘ä»¬æäº¤ä»£ç ä¸ºtag æ˜¯ä»¥'v'å¼€å¤´çš„æ—¶å€™æ‰ä¼šè§¦å‘è‡ªåŠ¨éƒ¨ç½²åˆ°æœåŠ¡ç«¯ å¦‚ git push tag v0.1.0
+    # tags: # µ±ÎÒÃÇÌá½»´úÂëÎªtag ÊÇÒÔ'v'¿ªÍ·µÄÊ±ºò²Å»á´¥·¢×Ô¶¯²¿Êğµ½·şÎñ¶Ë Èç git push tag v0.1.0
     #   - 'v*'
     branches
       - master
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest # è¿è¡Œç¯å¢ƒï¼Œå‘Šè¯‰å®ƒè¿è¡Œåœ¨ä»€ä¹ˆç¯å¢ƒ
-    steps: # æ­¥éª¤
+    runs-on: ubuntu-latest # ÔËĞĞ»·¾³£¬¸æËßËüÔËĞĞÔÚÊ²Ã´»·¾³
+    steps: # ²½Öè
 
-    # ç¬¬ä¸€æ­¥ï¼šä¸‹è½½æºç ï¼ˆCI/CDæ‹‰å–ä»£ç åˆ°è‡ªå·±çš„æœ¬åœ°ï¼‰
+    # µÚÒ»²½£ºÏÂÔØÔ´Âë£¨CI/CDÀ­È¡´úÂëµ½×Ô¼ºµÄ±¾µØ£©
     - name: Checkout
       uses: actions/checkout@master
 
-    # ç¬¬äºŒæ­¥ï¼šæ‰“åŒ…æ„å»º
+    # µÚ¶ş²½£º´ò°ü¹¹½¨
     - name: Build
       uses: actions/setup-node@master
-    - run: npm install # å®‰è£…ç¬¬ä¸‰æ–¹åŒ…
-    - run: npm run build # æ‰“åŒ…
+    - run: npm install # °²×°µÚÈı·½°ü
+    - run: npm run build # ´ò°ü
     - run: tar -zcvf dist.tgz ./dist
-      # æŠŠdistæ–‡ä»¶å¤¹æ‰“åŒ…å‹ç¼©ä¸ºdist.tgz
+      # °ÑdistÎÄ¼ş¼Ğ´ò°üÑ¹ËõÎªdist.tgz
 
-    # ç¬¬ä¸‰æ­¥ï¼šå‘å¸ƒ Release
-    - name: Create Release # åˆ›å»ºReleaseï¼Œå¯ä»¥åœ¨ä»“åº“çœ‹åˆ°ä¸€ä¸ªä¸ªç‰ˆæœ¬
+    # µÚÈı²½£º·¢²¼ Release
+    - name: Create Release # ´´½¨Release£¬¿ÉÒÔÔÚ²Ö¿â¿´µ½Ò»¸ö¸ö°æ±¾
       id: create_release
       uses: actions/create-release@master
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }} # ä¹‹å‰GitHubæ·»åŠ çš„Token
+        GITHUB_TOKEN: ${{ secrets.TOKEN }} # Ö®Ç°GitHubÌí¼ÓµÄToken
       with:
-        tag_name: ${{ github.ref }} # (tag)æ ‡ç­¾åç§°
+        tag_name: ${{ github.ref }} # (tag)±êÇ©Ãû³Æ
         release_name: Release ${{ github.ref }}
-        draft: false # æ˜¯å¦æ˜¯è‰ç¨¿
-        prerelease: false # æ˜¯å¦æ˜¯é¢„å‘å¸ƒ
+        draft: false # ÊÇ·ñÊÇ²İ¸å
+        prerelease: false # ÊÇ·ñÊÇÔ¤·¢²¼
 
-    # ç¬¬å››æ­¥ï¼šä¸Šä¼ æ„å»ºç»“æœåˆ° Releaseï¼ˆæŠŠæ‰“åŒ…çš„tgzä¸Šä¼ åˆ°Releaseï¼‰
+    # µÚËÄ²½£ºÉÏ´«¹¹½¨½á¹ûµ½ Release£¨°Ñ´ò°üµÄtgzÉÏ´«µ½Release£©
     - name: Upload Release Asset
       id: upload-release-asset
       uses: actions/upload-release-asset@master
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }} # ä¸Šä¼ åœ°å€ï¼Œé€šè¿‡åˆ›å»ºReleaseè·å–åˆ°çš„
-        asset_path: ./dist.tgz # è¦ä¸Šä¼ æ–‡ä»¶
-        asset_name: dist.tgz # ä¸Šä¼ åçš„æ–‡ä»¶å
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # ÉÏ´«µØÖ·£¬Í¨¹ı´´½¨Release»ñÈ¡µ½µÄ
+        asset_path: ./dist.tgz # ÒªÉÏ´«ÎÄ¼ş
+        asset_name: dist.tgz # ÉÏ´«ºóµÄÎÄ¼şÃû
         asset_content_type: application/x-tgz
 
-    # ç¬¬äº”æ­¥ï¼šéƒ¨ç½²åˆ°æœåŠ¡å™¨
+    # µÚÎå²½£º²¿Êğµ½·şÎñÆ÷
     - name: Deploy
-      uses: appleboy/ssh-action@master # ä½¿ç”¨sshé“¾æ¥æœåŠ¡å™¨
+      uses: appleboy/ssh-action@master # Ê¹ÓÃsshÁ´½Ó·şÎñÆ÷
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: | # æ‰§è¡Œå‘½ä»¤ï¼ˆè¿è¡Œåˆ°æœåŠ¡å™¨ï¼‰cdï¼šè¦ç¡®ä¿æœåŠ¡å™¨æœ‰è¿™ä¸ªç›®å½•ï¼› wgetï¼šä¸‹è½½ä¸Šä¸€æ­¥çš„releaseåˆ°æœåŠ¡å™¨ï¼› tarï¼šè§£å‹ï¼› å®‰è£…ä¾èµ–ï¼›å¯åŠ¨æœåŠ¡
+        script: | # Ö´ĞĞÃüÁî£¨ÔËĞĞµ½·şÎñÆ÷£©cd£ºÒªÈ·±£·şÎñÆ÷ÓĞÕâ¸öÄ¿Â¼£» wget£ºÏÂÔØÉÏÒ»²½µÄreleaseµ½·şÎñÆ÷£» tar£º½âÑ¹£» °²×°ÒÀÀµ£»Æô¶¯·şÎñ
           cd /home/github_boot/www/vue-admin
           wget https://github.com/mottzz87/vue-admin/releases/latest/download/dist.tgz -O dist.tgz
           tar zxvf dist.tgz
