@@ -60,4 +60,4 @@ jobs:
             wget https://github.com/mottzz87/vue-admin/releases/latest/download/dist.tgz -O dist.tgz
             tar zxvf dist.tgz
             npm install express
-            pm2 reload vue-admin.js
+            pm2 start vue-admin.js
