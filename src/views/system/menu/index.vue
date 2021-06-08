@@ -8,7 +8,7 @@
 				row-key="path"
 				:tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
 			>
-				<el-table-column label="菜单名称" show-overflow-tooltip>
+				<el-table-column label="菜单名称123" show-overflow-tooltip>
 					<template #default="scope">
 						<i :class="scope.row.meta.icon"></i>
 						<span class="ml10">{{ $t(scope.row.meta.title) }}</span>
