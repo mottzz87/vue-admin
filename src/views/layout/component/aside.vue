@@ -37,7 +37,10 @@ export default {
 		// 设置菜单展开/收起时的宽度
 		const setCollapseWidth = computed(() => {
 			let { layout, isCollapse, menuBar } = store.state.themeConfig.themeConfig;
-			let asideBrColor = menuBar === '#FFFFFF' || menuBar === '#FFF' || menuBar === '#fff' || menuBar === '#ffffff' ? 'layout-el-aside-br-color' : '';
+			let asideBrColor =
+				menuBar === '#FFFFFF' || menuBar === '#FFF' || menuBar === '#fff' || menuBar === '#ffffff'
+					? 'layout-el-aside-br-color'
+					: '';
 			if (layout === 'columns') {
 				// 分栏布局，菜单收起时宽度给 1px
 				if (isCollapse) {
@@ -85,9 +88,8 @@ export default {
 				proxy.$refs.layoutAsideScrollbarRef.update();
 			}
 		});
-		// 监听路由的变化，动态赋值给菜单中
+		// 监听vuex值的变化，动态赋值给菜单中
 		watch(store.state, (val) => {
-			if (val.routesList.routesList.length === state.menuList.length) return false;
 			let { layout, isClassicSplitMenu } = val.themeConfig.themeConfig;
 			if (layout === 'classic' && isClassicSplitMenu) return false;
 			setFilterRoutes();

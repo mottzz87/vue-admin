@@ -22,10 +22,12 @@
 import { reactive, toRefs, defineComponent, ref, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from '@/store/index.ts';
+import { useI18n } from 'vue-i18n';
 export default defineComponent({
 	name: 'layoutBreadcrumbSearch',
 	setup() {
 		const layoutMenuAutocompleteRef = ref();
+		const { t } = useI18n();
 		const store = useStore();
 		const router = useRouter();
 		const state: any = reactive({
@@ -56,7 +58,8 @@ export default defineComponent({
 			return (restaurant: any) => {
 				return (
 					restaurant.path.toLowerCase().indexOf(queryString.toLowerCase()) > -1 ||
-					restaurant.meta.title.toLowerCase().indexOf(queryString.toLowerCase()) > -1
+					restaurant.meta.title.toLowerCase().indexOf(queryString.toLowerCase()) > -1 ||
+					t(restaurant.meta.title).indexOf(queryString.toLowerCase()) > -1
 				);
 			};
 		};

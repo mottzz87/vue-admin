@@ -23,7 +23,9 @@
 			<div class="flex-warp">
 				<div class="flex-warp-item">
 					<div class="flex-warp-item-box">
-						<el-button type="primary" size="small" icon="el-icon-refresh-right" @click="refreshCurrent">重置/刷新数值 </el-button>
+						<el-button type="primary" size="small" icon="el-icon-refresh-right" @click="refreshCurrent"
+							>重置/刷新数值
+						</el-button>
 					</div>
 				</div>
 			</div>
@@ -49,7 +51,7 @@ export default {
 					icon: 'iconfont icon-jinridaiban',
 				},
 				{
-					title: '实验室总数',
+					title: '实验室总数1',
 					titleNum: '123',
 					tip: '使用中',
 					tipNum: '611',

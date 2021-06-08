@@ -1,6 +1,6 @@
 <template>
 	<div class="system-menu-container">
-		<el-dialog title="新增菜单" v-model="isShowDialog" width="769px">
+		<el-dialog title="新增菜单1" v-model="isShowDialog" width="769px">
 			<el-form :model="ruleForm" size="small" label-width="80px">
 				<el-row :gutter="35">
 					<el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
@@ -49,7 +49,13 @@
 					</el-col>
 					<el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
 						<el-form-item label="是否外链">
-							<el-select v-model="ruleForm.isLink" placeholder="请选择是否外链" clearable class="w100" :disabled="ruleForm.meta.isIframe === 'true'">
+							<el-select
+								v-model="ruleForm.isLink"
+								placeholder="请选择是否外链"
+								clearable
+								class="w100"
+								:disabled="ruleForm.meta.isIframe === 'true'"
+							>
 								<el-option label="是" value="true"></el-option>
 								<el-option label="否" value="false"></el-option>
 							</el-select>
@@ -57,7 +63,13 @@
 					</el-col>
 					<el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
 						<el-form-item label="是否内嵌">
-							<el-select v-model="ruleForm.meta.isIframe" placeholder="请选择是否iframe" clearable class="w100" @change="onSelectIframeChange">
+							<el-select
+								v-model="ruleForm.meta.isIframe"
+								placeholder="请选择是否iframe"
+								clearable
+								class="w100"
+								@change="onSelectIframeChange"
+							>
 								<el-option label="是" value="true"></el-option>
 								<el-option label="否" value="false"></el-option>
 							</el-select>
@@ -76,7 +88,11 @@
 					</el-col>
 					<el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
 						<el-form-item label="权限标识">
-							<el-input v-model="ruleForm.meta.auth" placeholder="路由权限标识（多个请用逗号隔开）" clearable></el-input>
+							<el-input
+								v-model="ruleForm.meta.auth"
+								placeholder="路由权限标识（多个请用逗号隔开）"
+								clearable
+							></el-input>
 						</el-form-item>
 					</el-col>
 					<el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">

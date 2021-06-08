@@ -26,7 +26,6 @@ export default {
 		funSelector: 'funSelector',
 		funWangEditor: 'wangEditor',
 		funCropper: 'cropper',
-		funMindMap: 'G6 MindMap',
 		funQrcode: 'qrcode',
 		funEchartsMap: 'EchartsMap',
 		funPrintJs: 'PrintJs',
@@ -145,7 +144,8 @@ export default {
 		sixClassic: 'Two',
 		sixTransverse: 'Three',
 		sixColumns: 'Four',
-		tipText: 'Click the button below to copy the layout configuration to `/src/store/modules/themeConfig.ts` It has been modified in.',
+		tipText:
+			'Click the button below to copy the layout configuration to `/src/store/modules/themeConfig.ts` It has been modified in.',
 		copyText: 'replication configuration',
 		copyTextSuccess: 'Copy succeeded!',
 		copyTextError: 'Copy failed!',

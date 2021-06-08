@@ -3,7 +3,7 @@
  * Desc         :  
  * Date         : 2021-05-23 00:35:56
  * @LastEditors: Vane
- * @LastEditTime: 2021-05-30 01:59:08
+ * @LastEditTime: 2021-06-07 04:31:09
  * @FilePath: \vue-admin\src\components\FormTable\index.vue
  -->
 <template>
@@ -95,7 +95,7 @@ export default {
 				ElMessage.warning('缺少接口api地址');
 				return;
 			}
-			console.log(formParams);
+			console.log(formParams, 11);
 			const data = {
 				page,
 				size: pageSize,
