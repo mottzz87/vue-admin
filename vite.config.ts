@@ -1,7 +1,7 @@
 /*
  * @Author: Vane
  * @Date: 2021-05-29 22:21:36
- * @LastEditTime: 2021-06-07 03:17:44
+ * @LastEditTime: 2021-06-09 22:52:36
  * @LastEditors: Vane
  * @Description:
  * @FilePath: \vue-admin\vite.config.ts
@@ -52,7 +52,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
 					target: 'https://gitee.com',
 					ws: true,
 					changeOrigin: true,
-					rewrite: (path) => path.replace(/^\/gitee/, ''),
+					rewrite: (path: string) => path.replace(/^\/gitee/, ''),
 				},
 				// '/admin-cdn': {
 				// 	target: 'https://gitee.com/vaned/admin-cdn',
