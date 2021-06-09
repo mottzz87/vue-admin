@@ -3,13 +3,11 @@
  * Desc         :  
  * Date         : 2021-04-29 09:18:16
  * @LastEditors: Vane
- * @LastEditTime: 2021-06-07 05:12:52
+ * @LastEditTime: 2021-06-09 20:08:57
  * @FilePath: \vue-admin\src\views\system\user\index.vue
  -->
 <template>
 	<div class="form-adapt-container">
-		123
-
 		<form-table ref="form-table" :form-config="formConfig" :table-config="tableConfig" />
 		<!-- 编辑、新建 -->
 		<el-dialog
@@ -22,16 +20,18 @@
 		</el-dialog>
 	</div>
 </template>
-<script lang="ts">
+<script lang="tsx">
 import { toRefs, reactive, getCurrentInstance } from 'vue';
 import FormTable from '@/components/FormTable/index.vue';
 import components from '@/components/Form/base/index.vue';
 import { ElMessageBox, ElNotification } from 'element-plus';
+import MLink from '@/components/Form/base/mLink.vue';
 export default {
 	name: 'pagesFormAdapt',
 	components: {
 		FormTable,
 		...{ ...components.components },
+		MLink,
 		// Edit
 	},
 	setup() {
@@ -91,7 +91,13 @@ export default {
 				columns: Object.freeze([
 					{ label: 'ID', render: ({ row }) => row.num },
 					{ label: '用户名', prop: 'name' },
-					{ label: '头像', prop: 'zip' },
+					{
+						label: '头像',
+						prop: 'zip',
+						render: (h: any, row: any, val: any) => (
+							<el-avatar size={100} src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" />
+						),
+					},
 					{ label: '手机号', prop: 'phone' },
 					{ label: '邮箱', prop: 'email' },
 					{ label: '性别', prop: 'sex' },
@@ -99,11 +105,7 @@ export default {
 					{
 						label: '操作',
 						width: 200,
-						render: (h: any, row: any, val: any) => {
-							// return <m-link opts={[{ label: '编辑' }, { label: '删除' }]} />;
-							// return <Action />;
-							return 123;
-						},
+						render: (h: any, row: any, val: any) => '编辑',
 					},
 				]),
 				pagination: {},
