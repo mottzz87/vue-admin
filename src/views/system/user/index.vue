@@ -48,7 +48,7 @@ export default {
 			loading: false,
 			formConfig: {
 				fields: [
-					{ prop: 'keyword', label: '关键字', type: 'textarea', rows: 1, maxlength: 100 },
+					{ prop: 'keyword', label: '关键字11', type: 'textarea', rows: 1, maxlength: 100 },
 					{ prop: 'sort', label: '单个复选', is: 'Checkbox', desc: '全选' },
 					{ prop: 'channelId', label: '多选', span: 12, is: 'CheckboxGroup', hasCheckAll: true, opts },
 					{ prop: 'sort1', label: '下拉多选', is: 'Select', multiple: true, opts, clearable: false },
