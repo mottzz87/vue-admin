@@ -2,8 +2,8 @@
  * Author       : Zhao Dongxu
  * Desc         :  
  * Date         : 2021-04-29 09:18:16
- * @LastEditors: Vane
- * @LastEditTime: 2021-06-09 20:08:57
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-06-16 01:46:55
  * @FilePath: \vue-admin\src\views\system\user\index.vue
  -->
 <template>
@@ -48,7 +48,7 @@ export default {
 			loading: false,
 			formConfig: {
 				fields: [
-					{ prop: 'keyword', label: '关键字11', type: 'textarea', rows: 1, maxlength: 100 },
+					{ prop: 'keyword', label: '关键字11222', type: 'textarea', rows: 1, maxlength: 100 },
 					{ prop: 'sort', label: '单个复选', is: 'Checkbox', desc: '全选' },
 					{ prop: 'channelId', label: '多选', span: 12, is: 'CheckboxGroup', hasCheckAll: true, opts },
 					{ prop: 'sort1', label: '下拉多选', is: 'Select', multiple: true, opts, clearable: false },
