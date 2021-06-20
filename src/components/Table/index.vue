@@ -3,7 +3,7 @@
  * Desc         :  
  * Date         : 2021-05-17 16:48:46
  * @LastEditors: Vane
- * @LastEditTime: 2021-05-31 03:35:49
+ * @LastEditTime: 2021-06-19 19:01:28
  * @FilePath: \vue-admin\src\components\Table\index.vue
  -->
 
@@ -117,9 +117,9 @@ export default {
 		// }
 
 		//格式化 支持render
-		const formatter = (row, column, cellValue, i, col) => {
+		const formatter = (row: any, column: any, cellValue: any, i: number, col: any) => {
 			const val = typeof cellValue === 'object' ? JSON.stringify(cellValue) : cellValue;
-			return col.render ? col.render({ h, row, val, i }) : cellValue;
+			return col.render ? col.render({ row, val, i, column }) : cellValue;
 		};
 
 		const handleSelectionChange = (val: never[]) => {

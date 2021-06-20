@@ -2,8 +2,8 @@
  * Author       : Zhao Dongxu
  * Desc         :  
  * Date         : 2021-04-29 09:18:16
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-06-16 01:52:28
+ * @LastEditors: Vane
+ * @LastEditTime: 2021-06-19 19:21:10
  * @FilePath: \vue-admin\src\views\system\user\index.vue
  -->
 <template>
@@ -62,6 +62,11 @@ export default {
 						is: 'Switch',
 					},
 					{ prop: 'sort7', label: '热搜词', is: 'Tag', opts },
+					{
+						prop: 'sort8',
+						label: '热搜词',
+						render: ({ row }) => <span style={{ color: 'red' }}>热搜词</span>,
+					},
 				],
 				formData: {
 					keyword: "['teset', 'safs']",
@@ -94,7 +99,7 @@ export default {
 					{
 						label: '头像',
 						prop: 'zip',
-						render: (h: any, row: any, val: any) => (
+						render: ({ row, val }) => (
 							<el-avatar size={100} src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" />
 						),
 					},
@@ -105,7 +110,7 @@ export default {
 					{
 						label: '操作',
 						width: 200,
-						render: (h: any, row: any, val: any) => '编辑',
+						render: ({ row, val }) => <span onClick={() => toEdit(row, val)}>编辑</span>,
 					},
 				]),
 				pagination: {},
@@ -153,6 +158,7 @@ export default {
 		};
 
 		const toEdit = (row: any) => {
+			console.log(row);
 			console.log(123123);
 
 			state.editData = row ? { ...row } : {};

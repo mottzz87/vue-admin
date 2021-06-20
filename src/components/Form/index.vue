@@ -3,7 +3,7 @@
  * Desc         :  
  * Date         : 2021-04-27 14:18:06
  * @LastEditors: Vane
- * @LastEditTime: 2021-05-31 17:30:16
+ * @LastEditTime: 2021-06-19 20:11:38
  * @FilePath: \vue-admin\src\components\Form\index.vue
  -->
 
@@ -21,9 +21,9 @@
 				>
 					<el-form-item v-bind="x" class="width-full">
 						<slot v-if="x?.is === 'slot'" :name="x.slotName" :data="{ ...x, ...form }"></slot>
+						<!-- CusRender组件 通过render函数渲染 -->
+						<div v-else-if="x.render"><CusRender :render="() => renderCusComponent(x, form[x.prop], form)" /></div>
 						<m-element v-else :item="x" v-model="form[x.prop]" v-bind="getComsAttrs(x)"></m-element>
-						<!-- cusComponent自定义组件 通过render函数渲染 -->
-						<!-- <div v-else-if="x.render" v-html="renderCusComponent(x, form, form[x.prop])"></div> -->
 					</el-form-item>
 				</el-col>
 			</transition-group>
@@ -49,6 +49,7 @@
 <script lang="ts">
 import { toRefs, reactive, computed, getCurrentInstance } from 'vue';
 import mElement from '@/components/Form/base/index.vue';
+import CusRender from '@/components/Form/base/CusRender.tsx';
 import { useRoute, useRouter } from 'vue-router';
 import { beforeSubmit, beforeDetail } from '@/utils';
 
@@ -56,6 +57,7 @@ export default {
 	name: 'Form',
 	components: {
 		mElement,
+		CusRender,
 	},
 	props: {
 		// config参数配置事例
@@ -123,7 +125,7 @@ export default {
 			},
 		};
 
-		const renderCusComponent = (x: any, form: any, val: any) => x.render(x, form, val);
+		const renderCusComponent = (x: any, val: any, form: any) => x.render(x, val, form);
 
 		const delCusPropers = (obj: Object) => {
 			let propers = { ...obj };
