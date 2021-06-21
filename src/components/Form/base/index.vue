@@ -3,7 +3,7 @@
  * Desc         :  
  * Date         : 2021-05-27 17:35:01
  * @LastEditors: Vane
- * @LastEditTime: 2021-05-31 04:13:59
+ * @LastEditTime: 2021-06-22 02:30:09
  * @FilePath: \vue-admin\src\components\Form\base\index.vue
  -->
 <template>
@@ -23,6 +23,7 @@ import mRate from './mRate.vue';
 import mTag from './mTag.vue';
 import mSwitch from './mSwitch.vue';
 import mLink from './mLink.vue';
+import mUpload from './mUpload.vue';
 
 export default defineComponent({
 	name: 'components',
@@ -38,6 +39,7 @@ export default defineComponent({
 		mTag,
 		mSwitch,
 		mLink,
+		mUpload,
 	},
 	props: {
 		item: Object,

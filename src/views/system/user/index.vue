@@ -3,7 +3,7 @@
  * Desc         :  
  * Date         : 2021-04-29 09:18:16
  * @LastEditors: Vane
- * @LastEditTime: 2021-06-19 19:21:10
+ * @LastEditTime: 2021-06-22 02:29:14
  * @FilePath: \vue-admin\src\views\system\user\index.vue
  -->
 <template>
@@ -56,6 +56,7 @@ export default {
 					{ prop: 'sort3', label: '排序', is: 'InputNumber' },
 					{ prop: 'sort4', label: '日期', is: 'DatePicker', type: 'daterange', format: 'YYYY-MM-DD' },
 					{ prop: 'sort5', label: '评分', is: 'Rate' },
+
 					{
 						prop: 'sort6',
 						label: '切换',
@@ -67,6 +68,7 @@ export default {
 						label: '热搜词',
 						render: ({ row }) => <span style={{ color: 'red' }}>热搜词</span>,
 					},
+					{ prop: 'sort9', label: '图片', is: 'Upload' },
 				],
 				formData: {
 					keyword: "['teset', 'safs']",
@@ -100,7 +102,7 @@ export default {
 						label: '头像',
 						prop: 'zip',
 						render: ({ row, val }) => (
-							<el-avatar size={100} src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" />
+							<el-avatar size={60} src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" />
 						),
 					},
 					{ label: '手机号', prop: 'phone' },
