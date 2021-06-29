@@ -37,7 +37,7 @@ export default {
 	setup() {
 		const { proxy } = getCurrentInstance() as any;
 		const opts = [
-			{ label: '篮球', value: '11' },
+			{ label: '篮球111', value: '11' },
 			{ label: '乒乓球', value: '22' },
 			{ label: '橄榄球', value: '33' },
 			{ label: '网球', value: '44' },
