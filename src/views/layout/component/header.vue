@@ -1,3 +1,11 @@
+<!--
+ * @Author: Vane
+ * @Date: 2021-07-03 02:18:22
+ * @LastEditTime: 2021-07-06 05:52:56
+ * @LastEditors: Vane
+ * @Description: 
+ * @FilePath: \vue-admin\src\views\layout\component\header.vue
+-->
 <template>
 	<el-header class="layout-header" :height="setHeaderHeight">
 		<NavBarsIndex />
@@ -6,7 +14,7 @@
 
 <script lang="ts">
 import { computed } from 'vue';
-import { useStore } from '@/store/index.ts';
+import { useStore } from '@/store/index';
 import NavBarsIndex from '@/views/layout/navBars/index.vue';
 export default {
 	name: 'layoutHeader',

@@ -265,7 +265,7 @@ import {
 	verifyPostalCode,
 	verifyUrl,
 	verifyCarNum,
-} from '@/utils/toolsValidate.ts';
+} from '@/utils/toolsValidate';
 export default {
 	name: 'tools',
 	setup() {

@@ -7,8 +7,8 @@
 
 <script lang="ts">
 import { computed, onBeforeMount, onUnmounted, getCurrentInstance } from 'vue';
-import { useStore } from '@/store/index.ts';
-import { getLocal, setLocal } from '@/utils/storage.ts';
+import { useStore } from '@/store/index';
+import { getLocal, setLocal } from '@/utils/storage';
 import Defaults from '@/views/layout/main/defaults.vue';
 import Classic from '@/views/layout/main/classic.vue';
 import Transverse from '@/views/layout/main/transverse.vue';

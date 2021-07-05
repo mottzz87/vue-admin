@@ -1,6 +1,6 @@
 import type { App } from 'vue';
-import { authDirective } from '@/utils/authDirective.ts';
-import { wavesDirective } from '@/utils/customDirective.ts';
+import { authDirective } from '@/utils/authDirective';
+import { wavesDirective } from '@/utils/customDirective';
 
 // 导出指令方法
 export function directive(app: App) {

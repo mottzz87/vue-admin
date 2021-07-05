@@ -9,7 +9,11 @@
 			<LayoutParentView />
 			<Footer v-if="getThemeConfig.isFooter" />
 		</el-scrollbar>
-		<Link :style="{ height: `calc(100vh - ${headerHeight}` }" :meta="currentRouteMeta" v-if="currentRouteMeta.isLink && !currentRouteMeta.isIframe" />
+		<Link
+			:style="{ height: `calc(100vh - ${headerHeight}` }"
+			:meta="currentRouteMeta"
+			v-if="currentRouteMeta.isLink && !currentRouteMeta.isIframe"
+		/>
 		<Iframes
 			:style="{ height: `calc(100vh - ${headerHeight}` }"
 			:meta="currentRouteMeta"
@@ -22,7 +26,7 @@
 <script lang="ts">
 import { computed, defineComponent, toRefs, reactive, getCurrentInstance, watch, onBeforeMount } from 'vue';
 import { useRoute } from 'vue-router';
-import { useStore } from '@/store/index.ts';
+import { useStore } from '@/store/index';
 import LayoutParentView from '@/views/layout/routerView/parent.vue';
 import Footer from '@/views/layout/footer/index.vue';
 import Link from '@/views/layout/routerView/link.vue';

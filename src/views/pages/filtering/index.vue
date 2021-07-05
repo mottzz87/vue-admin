@@ -20,9 +20,14 @@
 			>
 				<div class="filtering-list-title">{{ val.title }}</div>
 				<div class="filtering-list-item" :style="{ height: val.isMore ? 'auto' : '50px' }">
-					<span class="span" :class="v.active ? 'dd-active' : ''" v-for="(v, k) in val.children" :key="k" @click="onSelItem(val, v)">{{
-						v.label
-					}}</span>
+					<span
+						class="span"
+						:class="v.active ? 'dd-active' : ''"
+						v-for="(v, k) in val.children"
+						:key="k"
+						@click="onSelItem(val, v)"
+						>{{ v.label }}</span
+					>
 					<div class="dd-more" v-if="val.isShowMore" @click="val.isMore = !val.isMore">
 						<span>{{ val.isMore ? '收起' : '展开' }}</span>
 						<i :class="val.isMore ? 'el-icon-arrow-down' : 'el-icon-arrow-right'"></i>
@@ -31,7 +36,17 @@
 			</div>
 			<div class="flex-warp mt15 mb15" v-if="tableData.data.length > 0">
 				<el-row :gutter="15">
-					<el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4" class="mb15" v-for="(v, k) in tableData.data" :key="k" @click="onTableItemClick(v)">
+					<el-col
+						:xs="24"
+						:sm="12"
+						:md="8"
+						:lg="6"
+						:xl="4"
+						class="mb15"
+						v-for="(v, k) in tableData.data"
+						:key="k"
+						@click="onTableItemClick(v)"
+					>
 						<div class="flex-warp-item">
 							<div class="flex-warp-item-box">
 								<div class="item-img">
@@ -87,7 +102,7 @@
 <script lang="ts">
 import { ref, toRefs, reactive, onMounted, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
-import { filtering, filterList } from './mock.ts';
+import { filtering, filterList } from './mock';
 export default {
 	name: 'pagesFiltering',
 	setup() {
@@ -117,7 +132,9 @@ export default {
 			nextTick(() => {
 				const els = dlRefs.value;
 				els.map((v: any, k: any) => {
-					v.scrollHeight < v.lastChild.scrollHeight ? (state.filtering[k].isShowMore = true) : (state.filtering[k].isShowMore = false);
+					v.scrollHeight < v.lastChild.scrollHeight
+						? (state.filtering[k].isShowMore = true)
+						: (state.filtering[k].isShowMore = false);
 				});
 			});
 		};

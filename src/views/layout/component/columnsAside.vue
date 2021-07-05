@@ -46,7 +46,7 @@
 <script lang="ts">
 import { reactive, toRefs, ref, computed, onMounted, nextTick, getCurrentInstance, watch } from 'vue';
 import { useRoute, useRouter, onBeforeRouteUpdate } from 'vue-router';
-import { useStore } from '@/store/index.ts';
+import { useStore } from '@/store/index';
 export default {
 	name: 'layoutColumnsAside',
 	setup() {

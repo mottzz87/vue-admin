@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { reactive, toRefs, onBeforeMount, onUnmounted } from 'vue';
-import { formatDate } from '@/utils/formatTime.ts';
+import { formatDate } from '@/utils/formatTime';
 export default {
 	name: 'chartHead',
 	setup() {
@@ -77,7 +77,13 @@ export default {
 		background-size: 200% 100%;
 		-webkit-animation: masked-animation-data-v-b02d8052 4s linear infinite;
 		animation: masked-animation-data-v-b02d8052 4s linear infinite;
-		-webkit-box-reflect: below -2px -webkit-gradient(linear, left top, left bottom, from(transparent), to(hsla(0, 0%, 100%, 0.1)));
+		-webkit-box-reflect: below -2px -webkit-gradient(
+				linear,
+				left top,
+				left bottom,
+				from(transparent),
+				to(hsla(0, 0%, 100%, 0.1))
+			);
 		position: relative;
 		@keyframes masked-animation {
 			0% {

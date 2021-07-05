@@ -1,13 +1,14 @@
 import type { App } from 'vue';
-import { store } from '@/store/index.ts';
-import { judementSameArr } from '@/utils/arrayOperation.ts';
+import { store } from '@/store/index';
+import { judementSameArr } from '@/utils/arrayOperation';
 
 // 用户权限指令
 export function authDirective(app: App) {
 	// 单个权限验证（v-auth="xxx"）
 	app.directive('auth', {
 		mounted(el, binding) {
-			if (!store.state.userInfos.userInfos.authBtnList.some((v: any) => v === binding.value)) el.parentNode.removeChild(el);
+			if (!store.state.userInfos.userInfos.authBtnList.some((v: any) => v === binding.value))
+				el.parentNode.removeChild(el);
 		},
 	});
 	// 多个权限验证，满足一个则显示（v-auths="[xxx,xxx]"）

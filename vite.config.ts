@@ -1,7 +1,7 @@
 /*
  * @Author: Vane
  * @Date: 2021-05-29 22:21:36
- * @LastEditTime: 2021-06-22 01:28:27
+ * @LastEditTime: 2021-07-06 05:52:11
  * @LastEditors: Vane
  * @Description:
  * @FilePath: \vue-admin\vite.config.ts
@@ -20,8 +20,8 @@ const pathResolve = (dir: string): any => {
 };
 
 const alias: Record<string, string> = {
-	'@': pathResolve('/src/'),
-	'#': pathResolve('/types/'),
+	'@': pathResolve('./src/'),
+	'~': pathResolve('./'),
 	'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
 };
 

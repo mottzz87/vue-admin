@@ -6,16 +6,28 @@
 			</div>
 			<template #dropdown>
 				<el-dropdown-menu>
-					<el-dropdown-item command="" :disabled="disabledSize === ''">{{ $t('message.user.dropdownDefault') }}</el-dropdown-item>
-					<el-dropdown-item command="medium" :disabled="disabledSize === 'medium'">{{ $t('message.user.dropdownMedium') }}</el-dropdown-item>
-					<el-dropdown-item command="small" :disabled="disabledSize === 'small'">{{ $t('message.user.dropdownSmall') }}</el-dropdown-item>
-					<el-dropdown-item command="mini" :disabled="disabledSize === 'mini'">{{ $t('message.user.dropdownMini') }}</el-dropdown-item>
+					<el-dropdown-item command="" :disabled="disabledSize === ''">{{
+						$t('message.user.dropdownDefault')
+					}}</el-dropdown-item>
+					<el-dropdown-item command="medium" :disabled="disabledSize === 'medium'">{{
+						$t('message.user.dropdownMedium')
+					}}</el-dropdown-item>
+					<el-dropdown-item command="small" :disabled="disabledSize === 'small'">{{
+						$t('message.user.dropdownSmall')
+					}}</el-dropdown-item>
+					<el-dropdown-item command="mini" :disabled="disabledSize === 'mini'">{{
+						$t('message.user.dropdownMini')
+					}}</el-dropdown-item>
 				</el-dropdown-menu>
 			</template>
 		</el-dropdown>
 		<el-dropdown :show-timeout="70" :hide-timeout="50" trigger="click" @command="onLanguageChange">
 			<div class="layout-navbars-breadcrumb-user-icon">
-				<i class="iconfont" :class="disabledI18n === 'en' ? 'ant-icon-yingwen' : 'ant-icon-zhongwen'" :title="$t('message.user.title1')"></i>
+				<i
+					class="iconfont"
+					:class="disabledI18n === 'en' ? 'ant-icon-yingwen' : 'ant-icon-zhongwen'"
+					:title="$t('message.user.title1')"
+				></i>
 			</div>
 			<template #dropdown>
 				<el-dropdown-menu>
@@ -32,7 +44,13 @@
 			<i class="ant-icon-skin iconfont" :title="$t('message.user.title3')"></i>
 		</div>
 		<div class="layout-navbars-breadcrumb-user-icon">
-			<el-popover placement="bottom" trigger="click" v-model:visible="isShowUserNewsPopover" :width="300" popper-class="el-popover-pupop-user-news">
+			<el-popover
+				placement="bottom"
+				trigger="click"
+				v-model:visible="isShowUserNewsPopover"
+				:width="300"
+				popper-class="el-popover-pupop-user-news"
+			>
 				<template #reference>
 					<el-badge :is-dot="true" @click="isShowUserNewsPopover = !isShowUserNewsPopover">
 						<i class="el-icon-bell" :title="$t('message.user.title4')"></i>
@@ -76,9 +94,9 @@ import { useRouter } from 'vue-router';
 import { ElMessageBox, ElMessage } from 'element-plus';
 import screenfull from 'screenfull';
 import { useI18n } from 'vue-i18n';
-import { resetRoute } from '@/router/index.ts';
-import { useStore } from '@/store/index.ts';
-import { clearSession, setLocal, getLocal, removeLocal } from '@/utils/storage.ts';
+import { resetRoute } from '@/router/index';
+import { useStore } from '@/store/index';
+import { clearSession, setLocal, getLocal, removeLocal } from '@/utils/storage';
 import UserNews from '@/views/layout/navBars/breadcrumb/userNews.vue';
 import Search from '@/views/layout/navBars/breadcrumb/search.vue';
 export default {

@@ -6,7 +6,7 @@
  * @Description:
  * @FilePath: \vue-admin\src\api\menu\index.ts
  */
-import request from '@/utils/request.ts';
+import request from '@/utils/request';
 
 /**
  * 后端控制菜单模拟json，路径在 https://gitee.com/vaned/admin-cdn/raw/master/v3/menu

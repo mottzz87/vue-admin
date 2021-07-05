@@ -1,15 +1,15 @@
 /*
  * @Author: Vane
  * @Date: 2021-05-30 00:44:17
- * @LastEditTime: 2021-05-30 12:49:32
+ * @LastEditTime: 2021-07-06 05:55:40
  * @LastEditors: Vane
  * @Description:
  * @FilePath: \vue-admin\src\utils\request.ts
  */
 import axios from 'axios';
 import { ElMessage, ElMessageBox } from 'element-plus';
-import { clearSession, getSession } from '@/utils/storage.ts';
-import router, { resetRoute } from '@/router/index.ts';
+import { clearSession, getSession } from '@/utils/storage';
+import router, { resetRoute } from '@/router/index';
 
 // 配置新建一个 axios 实例
 const service = axios.create({

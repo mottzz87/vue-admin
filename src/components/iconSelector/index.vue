@@ -1,6 +1,11 @@
 <template>
 	<div class="icon-selector">
-		<el-popover :placement="placement" :width="fontIconWidth" v-model:visible="fontIconVisible" popper-class="icon-selector-popper">
+		<el-popover
+			:placement="placement"
+			:width="fontIconWidth"
+			v-model:visible="fontIconVisible"
+			popper-class="icon-selector-popper"
+		>
 			<template #reference>
 				<el-input
 					v-model="fontIcon"
@@ -61,7 +66,7 @@
 
 <script lang="ts">
 import { ref, toRefs, reactive, onMounted, nextTick, computed } from 'vue';
-import initIconfont from '@/utils/getStyleSheets.ts';
+import initIconfont from '@/utils/getStyleSheets';
 export default {
 	name: 'iconSelector',
 	props: {

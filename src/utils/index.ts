@@ -7,7 +7,7 @@
  * @FilePath: \vue-admin\src\utils\index.ts
  */
 
-import { formatToDate } from './dateUtil.ts';
+import { formatToDate } from './dateUtil';
 /**
  * @description: 深拷贝
  * @param {*} obj 拷贝对象(object or array)

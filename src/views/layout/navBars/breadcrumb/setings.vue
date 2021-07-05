@@ -14,31 +14,36 @@
 				<div class="layout-breadcrumb-seting-bar-flex">
 					<div class="layout-breadcrumb-seting-bar-flex-label">primary</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-color-picker v-model="getThemeConfig.primary" size="small" @change="onColorPickerChange('primary')"> </el-color-picker>
+						<el-color-picker v-model="getThemeConfig.primary" size="small" @change="onColorPickerChange('primary')">
+						</el-color-picker>
 					</div>
 				</div>
 				<div class="layout-breadcrumb-seting-bar-flex">
 					<div class="layout-breadcrumb-seting-bar-flex-label">success</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-color-picker v-model="getThemeConfig.success" size="small" @change="onColorPickerChange('success')"> </el-color-picker>
+						<el-color-picker v-model="getThemeConfig.success" size="small" @change="onColorPickerChange('success')">
+						</el-color-picker>
 					</div>
 				</div>
 				<div class="layout-breadcrumb-seting-bar-flex">
 					<div class="layout-breadcrumb-seting-bar-flex-label">info</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-color-picker v-model="getThemeConfig.info" size="small" @change="onColorPickerChange('info')"> </el-color-picker>
+						<el-color-picker v-model="getThemeConfig.info" size="small" @change="onColorPickerChange('info')">
+						</el-color-picker>
 					</div>
 				</div>
 				<div class="layout-breadcrumb-seting-bar-flex">
 					<div class="layout-breadcrumb-seting-bar-flex-label">warning</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-color-picker v-model="getThemeConfig.warning" size="small" @change="onColorPickerChange('warning')"> </el-color-picker>
+						<el-color-picker v-model="getThemeConfig.warning" size="small" @change="onColorPickerChange('warning')">
+						</el-color-picker>
 					</div>
 				</div>
 				<div class="layout-breadcrumb-seting-bar-flex">
 					<div class="layout-breadcrumb-seting-bar-flex-label">danger</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-color-picker v-model="getThemeConfig.danger" size="small" @change="onColorPickerChange('danger')"> </el-color-picker>
+						<el-color-picker v-model="getThemeConfig.danger" size="small" @change="onColorPickerChange('danger')">
+						</el-color-picker>
 					</div>
 				</div>
 
@@ -47,38 +52,58 @@
 				<div class="layout-breadcrumb-seting-bar-flex">
 					<div class="layout-breadcrumb-seting-bar-flex-label">{{ $t('message.layout.twoTopBar') }}</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-color-picker v-model="getThemeConfig.topBar" size="small" @change="onBgColorPickerChange('topBar')"> </el-color-picker>
+						<el-color-picker v-model="getThemeConfig.topBar" size="small" @change="onBgColorPickerChange('topBar')">
+						</el-color-picker>
 					</div>
 				</div>
 				<div class="layout-breadcrumb-seting-bar-flex">
 					<div class="layout-breadcrumb-seting-bar-flex-label">{{ $t('message.layout.twoMenuBar') }}</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-color-picker v-model="getThemeConfig.menuBar" size="small" @change="onBgColorPickerChange('menuBar')"> </el-color-picker>
+						<el-color-picker v-model="getThemeConfig.menuBar" size="small" @change="onBgColorPickerChange('menuBar')">
+						</el-color-picker>
 					</div>
 				</div>
 				<div class="layout-breadcrumb-seting-bar-flex">
 					<div class="layout-breadcrumb-seting-bar-flex-label">{{ $t('message.layout.twoColumnsMenuBar') }}</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-color-picker v-model="getThemeConfig.columnsMenuBar" size="small" @change="onBgColorPickerChange('columnsMenuBar')">
+						<el-color-picker
+							v-model="getThemeConfig.columnsMenuBar"
+							size="small"
+							@change="onBgColorPickerChange('columnsMenuBar')"
+						>
 						</el-color-picker>
 					</div>
 				</div>
 				<div class="layout-breadcrumb-seting-bar-flex">
 					<div class="layout-breadcrumb-seting-bar-flex-label">{{ $t('message.layout.twoTopBarColor') }}</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-color-picker v-model="getThemeConfig.topBarColor" size="small" @change="onBgColorPickerChange('topBarColor')"> </el-color-picker>
+						<el-color-picker
+							v-model="getThemeConfig.topBarColor"
+							size="small"
+							@change="onBgColorPickerChange('topBarColor')"
+						>
+						</el-color-picker>
 					</div>
 				</div>
 				<div class="layout-breadcrumb-seting-bar-flex">
 					<div class="layout-breadcrumb-seting-bar-flex-label">{{ $t('message.layout.twoMenuBarColor') }}</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-color-picker v-model="getThemeConfig.menuBarColor" size="small" @change="onBgColorPickerChange('menuBarColor')"> </el-color-picker>
+						<el-color-picker
+							v-model="getThemeConfig.menuBarColor"
+							size="small"
+							@change="onBgColorPickerChange('menuBarColor')"
+						>
+						</el-color-picker>
 					</div>
 				</div>
 				<div class="layout-breadcrumb-seting-bar-flex">
 					<div class="layout-breadcrumb-seting-bar-flex-label">{{ $t('message.layout.twoColumnsMenuBarColor') }}</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-color-picker v-model="getThemeConfig.columnsMenuBarColor" size="small" @change="onBgColorPickerChange('columnsMenuBarColor')">
+						<el-color-picker
+							v-model="getThemeConfig.columnsMenuBarColor"
+							size="small"
+							@change="onBgColorPickerChange('columnsMenuBarColor')"
+						>
 						</el-color-picker>
 					</div>
 				</div>
@@ -95,13 +120,20 @@
 					</div>
 				</div>
 				<div class="layout-breadcrumb-seting-bar-flex mt14">
-					<div class="layout-breadcrumb-seting-bar-flex-label">{{ $t('message.layout.twoIsColumnsMenuBarColorGradual') }}</div>
+					<div class="layout-breadcrumb-seting-bar-flex-label">
+						{{ $t('message.layout.twoIsColumnsMenuBarColorGradual') }}
+					</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-switch v-model="getThemeConfig.isColumnsMenuBarColorGradual" @change="onColumnsMenuBarGradualChange"></el-switch>
+						<el-switch
+							v-model="getThemeConfig.isColumnsMenuBarColorGradual"
+							@change="onColumnsMenuBarGradualChange"
+						></el-switch>
 					</div>
 				</div>
 				<div class="layout-breadcrumb-seting-bar-flex mt14">
-					<div class="layout-breadcrumb-seting-bar-flex-label">{{ $t('message.layout.twoIsMenuBarColorHighlight') }}</div>
+					<div class="layout-breadcrumb-seting-bar-flex-label">
+						{{ $t('message.layout.twoIsMenuBarColorHighlight') }}
+					</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
 						<el-switch v-model="getThemeConfig.isMenuBarColorHighlight" @change="onMenuBarHighlightChange"></el-switch>
 					</div>
@@ -127,10 +159,17 @@
 						<el-switch v-model="getThemeConfig.isFixedHeader" @change="onIsFixedHeaderChange"></el-switch>
 					</div>
 				</div>
-				<div class="layout-breadcrumb-seting-bar-flex mt15" :style="{ opacity: getThemeConfig.layout !== 'classic' ? 0.5 : 1 }">
+				<div
+					class="layout-breadcrumb-seting-bar-flex mt15"
+					:style="{ opacity: getThemeConfig.layout !== 'classic' ? 0.5 : 1 }"
+				>
 					<div class="layout-breadcrumb-seting-bar-flex-label">{{ $t('message.layout.threeIsClassicSplitMenu') }}</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-switch v-model="getThemeConfig.isClassicSplitMenu" :disabled="getThemeConfig.layout !== 'classic'" @change="onClassicSplitMenuChange">
+						<el-switch
+							v-model="getThemeConfig.isClassicSplitMenu"
+							:disabled="getThemeConfig.layout !== 'classic'"
+							@change="onClassicSplitMenuChange"
+						>
 						</el-switch>
 					</div>
 				</div>
@@ -234,7 +273,12 @@
 				<div class="layout-breadcrumb-seting-bar-flex mt14">
 					<div class="layout-breadcrumb-seting-bar-flex-label">{{ $t('message.layout.fourWartermarkText') }}</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-input v-model="getThemeConfig.wartermarkText" size="mini" style="width: 90px" @input="onWartermarkTextInput($event)"></el-input>
+						<el-input
+							v-model="getThemeConfig.wartermarkText"
+							size="mini"
+							style="width: 90px"
+							@input="onWartermarkTextInput($event)"
+						></el-input>
 					</div>
 				</div>
 
@@ -243,7 +287,13 @@
 				<div class="layout-breadcrumb-seting-bar-flex mt15">
 					<div class="layout-breadcrumb-seting-bar-flex-label">{{ $t('message.layout.fiveTagsStyle') }}</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-select v-model="getThemeConfig.tagsStyle" placeholder="请选择" size="mini" style="width: 90px" @change="setLocalThemeConfig">
+						<el-select
+							v-model="getThemeConfig.tagsStyle"
+							placeholder="请选择"
+							size="mini"
+							style="width: 90px"
+							@change="setLocalThemeConfig"
+						>
 							<el-option label="风格1" value="tags-style-one"></el-option>
 							<el-option label="风格2" value="tags-style-two"></el-option>
 							<el-option label="风格3" value="tags-style-three"></el-option>
@@ -254,7 +304,13 @@
 				<div class="layout-breadcrumb-seting-bar-flex mt15">
 					<div class="layout-breadcrumb-seting-bar-flex-label">{{ $t('message.layout.fiveAnimation') }}</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-select v-model="getThemeConfig.animation" placeholder="请选择" size="mini" style="width: 90px" @change="setLocalThemeConfig">
+						<el-select
+							v-model="getThemeConfig.animation"
+							placeholder="请选择"
+							size="mini"
+							style="width: 90px"
+							@change="setLocalThemeConfig"
+						>
 							<el-option label="slide-right" value="slide-right"></el-option>
 							<el-option label="slide-left" value="slide-left"></el-option>
 							<el-option label="opacitys" value="opacitys"></el-option>
@@ -264,7 +320,13 @@
 				<div class="layout-breadcrumb-seting-bar-flex mt15">
 					<div class="layout-breadcrumb-seting-bar-flex-label">{{ $t('message.layout.fiveColumnsAsideStyle') }}</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-select v-model="getThemeConfig.columnsAsideStyle" placeholder="请选择" size="mini" style="width: 90px" @change="setLocalThemeConfig">
+						<el-select
+							v-model="getThemeConfig.columnsAsideStyle"
+							placeholder="请选择"
+							size="mini"
+							style="width: 90px"
+							@change="setLocalThemeConfig"
+						>
 							<el-option label="圆角" value="columns-round"></el-option>
 							<el-option label="卡片" value="columns-card"></el-option>
 						</el-select>
@@ -273,7 +335,13 @@
 				<div class="layout-breadcrumb-seting-bar-flex mt15 mb28">
 					<div class="layout-breadcrumb-seting-bar-flex-label">{{ $t('message.layout.fiveColumnsAsideLayout') }}</div>
 					<div class="layout-breadcrumb-seting-bar-flex-value">
-						<el-select v-model="getThemeConfig.columnsAsideLayout" placeholder="请选择" size="mini" style="width: 90px" @change="setLocalThemeConfig">
+						<el-select
+							v-model="getThemeConfig.columnsAsideLayout"
+							placeholder="请选择"
+							size="mini"
+							style="width: 90px"
+							@change="setLocalThemeConfig"
+						>
 							<el-option label="水平" value="columns-horizontal"></el-option>
 							<el-option label="垂直" value="columns-vertical"></el-option>
 						</el-select>
@@ -285,7 +353,10 @@
 				<div class="layout-drawer-content-flex">
 					<!-- defaults 布局 -->
 					<div class="layout-drawer-content-item" @click="onSetLayout('defaults')">
-						<section class="el-container el-circular" :class="{ 'drawer-layout-active': getThemeConfig.layout === 'defaults' }">
+						<section
+							class="el-container el-circular"
+							:class="{ 'drawer-layout-active': getThemeConfig.layout === 'defaults' }"
+						>
 							<aside class="el-aside" style="width: 20px"></aside>
 							<section class="el-container is-vertical">
 								<header class="el-header" style="height: 10px"></header>
@@ -300,7 +371,10 @@
 					</div>
 					<!-- classic 布局 -->
 					<div class="layout-drawer-content-item" @click="onSetLayout('classic')">
-						<section class="el-container is-vertical el-circular" :class="{ 'drawer-layout-active': getThemeConfig.layout === 'classic' }">
+						<section
+							class="el-container is-vertical el-circular"
+							:class="{ 'drawer-layout-active': getThemeConfig.layout === 'classic' }"
+						>
 							<header class="el-header" style="height: 10px"></header>
 							<section class="el-container">
 								<aside class="el-aside" style="width: 20px"></aside>
@@ -317,7 +391,10 @@
 					</div>
 					<!-- transverse 布局 -->
 					<div class="layout-drawer-content-item" @click="onSetLayout('transverse')">
-						<section class="el-container is-vertical el-circular" :class="{ 'drawer-layout-active': getThemeConfig.layout === 'transverse' }">
+						<section
+							class="el-container is-vertical el-circular"
+							:class="{ 'drawer-layout-active': getThemeConfig.layout === 'transverse' }"
+						>
 							<header class="el-header" style="height: 10px"></header>
 							<section class="el-container">
 								<section class="el-container is-vertical">
@@ -325,7 +402,10 @@
 								</section>
 							</section>
 						</section>
-						<div class="layout-tips-warp" :class="{ 'layout-tips-warp-active': getThemeConfig.layout === 'transverse' }">
+						<div
+							class="layout-tips-warp"
+							:class="{ 'layout-tips-warp-active': getThemeConfig.layout === 'transverse' }"
+						>
 							<div class="layout-tips-box">
 								<p class="layout-tips-txt">{{ $t('message.layout.sixTransverse') }}</p>
 							</div>
@@ -333,7 +413,10 @@
 					</div>
 					<!-- columns 布局 -->
 					<div class="layout-drawer-content-item" @click="onSetLayout('columns')">
-						<section class="el-container el-circular" :class="{ 'drawer-layout-active': getThemeConfig.layout === 'columns' }">
+						<section
+							class="el-container el-circular"
+							:class="{ 'drawer-layout-active': getThemeConfig.layout === 'columns' }"
+						>
 							<aside class="el-aside-dark" style="width: 10px"></aside>
 							<aside class="el-aside" style="width: 20px"></aside>
 							<section class="el-container is-vertical">
@@ -370,11 +453,11 @@ import { nextTick, onUnmounted, onMounted, getCurrentInstance, defineComponent, 
 import { ElMessage } from 'element-plus';
 import ClipboardJS from 'clipboard';
 import { useI18n } from 'vue-i18n';
-import { useStore } from '@/store/index.ts';
-import { getLightColor } from '@/utils/theme.ts';
-import Watermark from '@/utils/wartermark.ts';
-import { verifyAndSpace } from '@/utils/toolsValidate.ts';
-import { setLocal, getLocal, removeLocal } from '@/utils/storage.ts';
+import { useStore } from '@/store/index';
+import { getLightColor } from '@/utils/theme';
+import Watermark from '@/utils/wartermark';
+import { verifyAndSpace } from '@/utils/toolsValidate';
+import { setLocal, getLocal, removeLocal } from '@/utils/storage';
 export default defineComponent({
 	name: 'layoutBreadcrumbSeting',
 	setup() {
@@ -408,22 +491,38 @@ export default defineComponent({
 		};
 		// 2、菜单 / 顶栏 --> 顶栏背景渐变
 		const onTopBarGradualChange = () => {
-			setGraduaFun('.layout-navbars-breadcrumb-index', getThemeConfig.value.isTopBarColorGradual, getThemeConfig.value.topBar);
+			setGraduaFun(
+				'.layout-navbars-breadcrumb-index',
+				getThemeConfig.value.isTopBarColorGradual,
+				getThemeConfig.value.topBar
+			);
 		};
 		// 2、菜单 / 顶栏 --> 菜单背景渐变
 		const onMenuBarGradualChange = () => {
-			setGraduaFun('.layout-container .el-aside', getThemeConfig.value.isMenuBarColorGradual, getThemeConfig.value.menuBar);
+			setGraduaFun(
+				'.layout-container .el-aside',
+				getThemeConfig.value.isMenuBarColorGradual,
+				getThemeConfig.value.menuBar
+			);
 		};
 		// 2、菜单 / 顶栏 --> 分栏菜单背景渐变
 		const onColumnsMenuBarGradualChange = () => {
-			setGraduaFun('.layout-container .layout-columns-aside', getThemeConfig.value.isColumnsMenuBarColorGradual, getThemeConfig.value.columnsMenuBar);
+			setGraduaFun(
+				'.layout-container .layout-columns-aside',
+				getThemeConfig.value.isColumnsMenuBarColorGradual,
+				getThemeConfig.value.columnsMenuBar
+			);
 		};
 		// 2、菜单 / 顶栏 --> 背景渐变函数
 		const setGraduaFun = (el: string, bool: boolean, color: string) => {
 			nextTick(() => {
 				let els = document.querySelector(el);
 				if (!els) return false;
-				if (bool) els.setAttribute('style', `background-image:linear-gradient(to bottom left , ${color}, ${getLightColor(color, 0.6)})`);
+				if (bool)
+					els.setAttribute(
+						'style',
+						`background-image:linear-gradient(to bottom left , ${color}, ${getLightColor(color, 0.6)})`
+					);
 				else els.setAttribute('style', `background-image:${color}`);
 				setLocalThemeConfig();
 			});
@@ -487,7 +586,9 @@ export default defineComponent({
 				if (getThemeConfig.value.isInvert) getThemeConfig.value.isGrayscale = false;
 			}
 			const cssAttr =
-				attr === 'grayscale' ? `grayscale(${getThemeConfig.value.isGrayscale ? 1 : 0})` : `invert(${getThemeConfig.value.isInvert ? '80%' : '0%'})`;
+				attr === 'grayscale'
+					? `grayscale(${getThemeConfig.value.isGrayscale ? 1 : 0})`
+					: `invert(${getThemeConfig.value.isInvert ? '80%' : '0%'})`;
 			const appEle: any = document.body;
 			appEle.setAttribute('style', `filter: ${cssAttr}`);
 			setLocalThemeConfig();

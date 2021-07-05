@@ -27,8 +27,8 @@
 
 <script lang="ts">
 import { toRefs, reactive, onMounted } from 'vue';
-import initIconfont from '@/utils/getStyleSheets.ts';
-import onCopyClick from '@/utils/clipboard.ts';
+import initIconfont from '@/utils/getStyleSheets';
+import onCopyClick from '@/utils/clipboard';
 export default {
 	name: 'pagesElement',
 	setup() {

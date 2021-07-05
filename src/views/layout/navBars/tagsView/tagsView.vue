@@ -65,8 +65,8 @@ import {
 } from 'vue';
 import { useRoute, useRouter, onBeforeRouteUpdate } from 'vue-router';
 import screenfull from 'screenfull';
-import { useStore } from '@/store/index.ts';
-import { setSession, getSession, removeSession } from '@/utils/storage.ts';
+import { useStore } from '@/store/index';
+import { setSession, getSession, removeSession } from '@/utils/storage';
 import Sortable from 'sortablejs';
 import Contextmenu from '@/views/layout/navBars/tagsView/contextmenu.vue';
 export default {
