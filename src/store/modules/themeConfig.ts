@@ -1,5 +1,5 @@
 import { Module } from 'vuex';
-// 此处加上 `.ts` 后缀报错，具体原因不详
+
 import { ThemeConfigState, RootStateTypes } from '@/store/interface/index';
 
 /**

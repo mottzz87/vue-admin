@@ -1,5 +1,13 @@
+/*
+ * @Author: Vane
+ * @Date: 2021-07-03 02:18:22
+ * @LastEditTime: 2021-07-10 17:17:33
+ * @LastEditors: Vane
+ * @Description:
+ * @FilePath: \vue-admin\src\store\modules\tagsViewRoutes.ts
+ */
 import { Module } from 'vuex';
-// 此处加上 `.ts` 后缀报错，具体原因不详
+
 import { TagsViewRoutesState, RootStateTypes } from '@/store/interface/index';
 
 const tagsViewRoutesModule: Module<TagsViewRoutesState, RootStateTypes> = {
