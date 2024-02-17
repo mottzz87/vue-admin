@@ -38,7 +38,6 @@ jobs:
           release_name: Release ${{ github.ref }}
           draft: false # 是否是草稿
           prerelease: false # 是否是预发布
-          allowUpdates: true
 
       # 第四步：上传构建结果到 Release（把打包的tgz上传到Release）
       - name: Upload Release Asset
