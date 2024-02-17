@@ -48,18 +48,18 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
 			port: VITE_PORT,
 			open: VITE_OPEN,
 			proxy: {
-				'/gitee': {
-					target: 'https://gitee.com',
-					ws: true,
-					changeOrigin: true,
-					rewrite: (path: string) => path.replace(/^\/gitee/, ''),
-				},
-				// '/admin-cdn': {
-				// 	target: 'https://gitee.com/vaned/admin-cdn',
+				// '/gitee': {
+				// 	target: 'https://gitee.com',
 				// 	ws: true,
 				// 	changeOrigin: true,
-				// 	rewrite: (path) => path.replace(/^\/admin-cdn/, ''),
-				// }
+				// 	rewrite: (path: string) => path.replace(/^\/gitee/, ''),
+				// },
+				'/admin-cdn': {
+					target: 'https://gitee.com/vaned/admin-cdn',
+					ws: true,
+					changeOrigin: true,
+					rewrite: (path) => path.replace(/^\/admin-cdn/, ''),
+				}
 			},
 		},
 		build: {
