@@ -3701,16 +3701,7 @@ imagemin-optipng@^8.0.0:
     is-png "^2.0.0"
     optipng-bin "^7.0.0"
 
-imagemin-pngquant@^9.0.2:
-  version "9.0.2"
-  resolved "https://registry.yarnpkg.com/imagemin-pngquant/-/imagemin-pngquant-9.0.2.tgz#38155702b0cc4f60f671ba7c2b086ea3805d9567"
-  integrity sha512-cj//bKo8+Frd/DM8l6Pg9pws1pnDUjgb7ae++sUX1kUVdv2nrngPykhiUOgFeE0LGY/LmUbCf4egCHC4YUcZSg==
-  dependencies:
-    execa "^4.0.0"
-    is-png "^2.0.0"
-    is-stream "^2.0.0"
-    ow "^0.17.0"
-    pngquant-bin "^6.0.0"
+
 
 imagemin-svgo@^8.0.0:
   version "8.0.0"
@@ -4948,35 +4939,6 @@ pinkie@^2.0.0:
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
-pngquant-bin@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/pngquant-bin/-/pngquant-bin-5.0.2.tgz#6f34f3e89c9722a72bbc509062b40f1b17cda460"
-  integrity sha512-OLdT+4JZx5BqE1CFJkrvomYV0aSsv6x2Bba+aWaVc0PMfWlE+ZByNKYAdKeIqsM4uvW1HOSEHnf8KcOnykPNxA==
-  dependencies:
-    bin-build "^3.0.0"
-    bin-wrapper "^4.0.1"
-    execa "^0.10.0"
-    logalot "^2.0.0"
-
-pngquant-bin@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/pngquant-bin/-/pngquant-bin-6.0.0.tgz#aff0d7e61095feb96ced379ad8c7294ad3dd1712"
-  integrity sha512-oXWAS9MQ9iiDAJRdAZ9KO1mC5UwhzKkJsmetiu0iqIjJuW7JsuLhmc4JdRm7uJkIWRzIAou/Vq2VcjfJwz30Ow==
-  dependencies:
-    bin-build "^3.0.0"
-    bin-wrapper "^4.0.1"
-    execa "^4.0.0"
-    logalot "^2.0.0"
-
-pngquant@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/pngquant/-/pngquant-4.0.0.tgz#e8cbf20d7951b5ed8e30e1b5ffd5cc97be6e0346"
-  integrity sha512-RFAxCNTV6QNTKFSrxyExjYWtAB8AqoxP8FAdprXU8V+aYAaHb3scVCknpujYf2etT1RaX6wgCWgvWotm2QSarw==
-  dependencies:
-    memoizeasync "1.1.0"
-    which "2.0.2"
-  optionalDependencies:
-    pngquant-bin "^5.0.2"
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
@@ -6377,7 +6339,6 @@ vite-plugin-imagemin@^0.3.2:
     imagemin-gifsicle "^7.0.0"
     imagemin-mozjpeg "^9.0.0"
     imagemin-optipng "^8.0.0"
-    imagemin-pngquant "^9.0.2"
     imagemin-svgo "^8.0.0"
     imagemin-webp "^6.0.0"
 
