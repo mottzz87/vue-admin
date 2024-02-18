@@ -68,6 +68,6 @@ jobs:
             npm install express
             parent_dir=$(basename "$(pwd)")
             wget https://github.com/mottzz87/vue-admin/releases/latest/download/dist.tgz -O dist.tgz
-            wget https://github.com/mottzz87/vue-admin/blob/master/node-server.js -O "$parent_dir".js
+            wget https://raw.githubusercontent.com/mottzz87/vue-admin/master/node-server.js -O "$parent_dir".js
             tar zxvf dist.tgz
-            pm2 reload "$parent_dir"
+            pm2 start "$parent_dir".js
